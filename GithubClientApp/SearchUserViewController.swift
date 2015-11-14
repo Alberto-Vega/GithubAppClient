@@ -100,6 +100,16 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
         return cell
     }
     
+//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        if let delegate = self.delegate {
+//            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! UserCollectionViewCell
+//            if let user = users[indexPath] {
+//                
+//            }
+//            
+//        }
+//    }
+//    
     // MARK: UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -111,8 +121,14 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "DetailViewController" {
-            guard let userDetailViewController = segue.destinationViewController as? UserDetailViewController else {return}
-            detailViewController.transitioningDelegate = self
+            if let cell = sender as? UICollectionViewCell, indexPath = collectionView.indexPathForCell(cell) {
+                guard let userDetailViewController = segue.destinationViewController as? UserDetailViewController else {return}
+                userDetailViewController.transitioningDelegate = self
+                
+                let user = users[indexPath.item]
+                
+                userDetailViewController.selectedUser = user
+            }
         }
     }
     
