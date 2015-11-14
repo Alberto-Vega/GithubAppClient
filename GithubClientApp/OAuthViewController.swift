@@ -8,28 +8,46 @@
 
 import UIKit
 
+typealias OAuthViewControllerCompletionHandler = () -> ()
+
 class OAuthViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    var oauthCompletionHandler: OAuthViewControllerCompletionHandler?
+    
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
+    class func identifier() -> String {
+        return "OAuthViewController"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupAppearance()
     }
-    */
-
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func setupAppearance() {
+        self.loginButton.layer.cornerRadius = 3.0
+    }
+    
+    func processOauthRequest() {
+        if let oauthCompletionHandler = self.oauthCompletionHandler {
+            oauthCompletionHandler()
+        }
+    }
+    
+    @IBAction func loginButtonSelected(sender: UIButton) {
+        self.activityIndicatorView.startAnimating()
+        NSOperationQueue().addOperationWithBlock { () -> Void in
+            usleep(1000000)
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                MBGithubOAuth.shared.oauthRequestWith(["scope" : "email,user,repo"])
+            })
+        }
+    }
+    
 }
