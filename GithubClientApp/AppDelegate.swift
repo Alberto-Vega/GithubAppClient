@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-        
         return true
     }
     
@@ -72,14 +71,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             homeViewController.update()
                     })
                 })
-                
                 self.oauthViewController = oauthViewController
-                
             }
-            
-            
         }
-        
     }
     
     //    func presentOAuthViewController() {

@@ -15,6 +15,7 @@ class UserDetailViewController: UIViewController {
     }
 
     @IBOutlet weak var userImageView: UIImageView!
+    
     var selectedUser: User? {
         didSet {
             print("Detail view controller received the user: \(selectedUser?.name)")
@@ -23,6 +24,8 @@ class UserDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        downloadImage()
+
 
         // Do any additional setup after loading the view.
     }
@@ -38,23 +41,22 @@ class UserDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    func downloadImage () {
-//        
-//        if let url = NSURL(string: (owner?.avatarUrl)!) {
-//            
-//            let downloadQ = dispatch_queue_create("downloadQ", nil)
-//            dispatch_async(downloadQ, { () -> Void in
-//                let imageData = NSData(contentsOfURL: url)!
-//                
-//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                    let image = UIImage(data: imageData)
-//                    self.userImageView.image = image
-//                })
-//            })
-//        }
-//    }
-    
-
+    func downloadImage () {
+        guard let string = selectedUser?.profileImageUrl  else {return}
+        print(string)
+        guard let url = NSURL(string: (string)) else { return }
+            
+            let downloadQ = dispatch_queue_create("downloadQ", nil)
+            dispatch_async(downloadQ, { () -> Void in
+                let imageData = NSData(contentsOfURL: url)!
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    guard let image = UIImage(data: imageData) else { return }
+                    self.userImageView.image = image
+                })
+            })
+        
+    }
     /*
     // MARK: - Navigation
 

@@ -126,6 +126,7 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
                 userDetailViewController.transitioningDelegate = self
                 
                 let user = users[indexPath.item]
+                print(user.profileImageUrl)
                 
                 userDetailViewController.selectedUser = user
             }

@@ -103,7 +103,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -408,9 +408,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="loginTextLabel" destination="cl0-OK-CEZ" id="65m-Vv-xUH"/>
-                        <outlet property="nameTextLabel" destination="Nqy-Nq-RiO" id="wvX-ng-kxg"/>
-                        <outlet property="urlTextLabel" destination="Dx8-Xi-I6E" id="Jir-Ey-wMz"/>
                         <outlet property="userImageView" destination="zAz-x8-ccP" id="EXr-aZ-Tgi"/>
                     </connections>
                 </viewController>
