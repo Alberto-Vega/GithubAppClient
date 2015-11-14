@@ -195,6 +195,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="fBQ-97-4M6" id="Wmy-db-ptw"/>
+                                            <segue destination="eIg-8s-rPD" kind="show" identifier="UserDetailViewController" id="YoN-8K-YTj"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -320,10 +321,10 @@
             </objects>
             <point key="canvasLocation" x="870" y="547"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--User Detail View Controller-->
         <scene sceneID="nAH-2N-GjQ">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="eIg-8s-rPD" customClass="ProfileViewController" customModule="GithubApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="eIg-8s-rPD" customClass="UserDetailViewController" customModule="GithubClientApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wX4-RK-Ev1"/>
                         <viewControllerLayoutGuide type="bottom" id="JYu-pn-5mK"/>
@@ -343,8 +344,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="v3x-1a-MeE"/>
                                         <exclude reference="1ih-Gz-H04"/>
+                                        <exclude reference="v3x-1a-MeE"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -410,7 +411,7 @@
                         <outlet property="loginTextLabel" destination="cl0-OK-CEZ" id="65m-Vv-xUH"/>
                         <outlet property="nameTextLabel" destination="Nqy-Nq-RiO" id="wvX-ng-kxg"/>
                         <outlet property="urlTextLabel" destination="Dx8-Xi-I6E" id="Jir-Ey-wMz"/>
-                        <outlet property="userImageView" destination="zAz-x8-ccP" id="Lbq-IM-G0B"/>
+                        <outlet property="userImageView" destination="zAz-x8-ccP" id="EXr-aZ-Tgi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUy-x3-ACh" userLabel="First Responder" sceneMemberID="firstResponder"/>
