@@ -213,11 +213,12 @@
                             <constraint firstAttribute="trailing" secondItem="4Gu-zw-oYb" secondAttribute="trailing" id="O0w-0u-NFO"/>
                             <constraint firstItem="4Gu-zw-oYb" firstAttribute="leading" secondItem="tAu-Ig-1eK" secondAttribute="leading" id="VFf-4W-hbe"/>
                             <constraint firstItem="kwe-Zb-jKN" firstAttribute="leading" secondItem="tAu-Ig-1eK" secondAttribute="leading" id="ax2-gM-w9o"/>
-                            <constraint firstItem="XPI-bp-vO2" firstAttribute="top" secondItem="4Gu-zw-oYb" secondAttribute="bottom" id="dkm-ja-oQX"/>
+                            <constraint firstItem="XPI-bp-vO2" firstAttribute="top" secondItem="4Gu-zw-oYb" secondAttribute="bottom" constant="49" id="dkm-ja-oQX"/>
                             <constraint firstAttribute="trailing" secondItem="kwe-Zb-jKN" secondAttribute="trailing" id="zjk-1r-s4N"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search User" id="Ita-Fw-dvX"/>
+                    <navigationItem key="navigationItem" id="Si2-yt-NTU"/>
                     <connections>
                         <outlet property="collectionView" destination="4Gu-zw-oYb" id="ueI-gh-7Yq"/>
                         <outlet property="searchBar" destination="kwe-Zb-jKN" id="GW7-EL-tCi"/>
@@ -387,6 +388,10 @@
                                 <rect key="frame" x="220" y="493" width="160" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Search for Repositories"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="eIg-8s-rPD" eventType="touchUpInside" id="Z6t-Pf-zqp"/>
+                                    <segue destination="dDK-3c-VWb" kind="show" id="jKh-qy-WTO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>

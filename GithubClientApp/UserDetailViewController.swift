@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserDetailViewController: UIViewController {
+class UserDetailViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
     class func identifier() -> String {
         return "UserDetailViewController"
@@ -17,6 +17,9 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     
     @IBOutlet weak var userLoginLabel: UILabel!
+    
+    let customTransition = CustomModalTransition(duration: 6.0)
+
     
     var selectedUser: User? {
         didSet {
@@ -60,14 +63,32 @@ class UserDetailViewController: UIViewController {
             })
         
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        
+        // Example of rotating view 45 degrees clockwise.
+        
+        for _ in 0...6 {
+            UIView.animateWithDuration(0.4) { () -> Void in
+                self.userImageView.transform = CGAffineTransformRotate(self.userImageView.transform, CGFloat(M_PI * 45 / 180.0))
+                self.userImageView.transform = CGAffineTransformScale(self.userImageView.transform, 1.6, 1.6)
+            }
+        }
+        
     }
-    */
+    
+    // MARK: prepareForSegue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+//                userDetailViewController.transitioningDelegate = self
+        
+            }
+   
+    // MARK: Transition
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self.customTransition
+    }
 
 }

@@ -10,10 +10,10 @@ import UIKit
 
 class CustomModalTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
-    var duration = 1.0
+    var duration = 6.0
     
-    init(duratioin: NSTimeInterval) {
-        self.duration = duratioin
+    init(duration: NSTimeInterval) {
+        self.duration = duration
     }
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {

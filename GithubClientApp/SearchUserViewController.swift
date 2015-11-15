@@ -12,7 +12,7 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
-    let customTransition = CustomModalTransition(duratioin: 2.0)
+    let customTransition = CustomModalTransition(duration: 2.0)
 
     
     var users = [User]() {
