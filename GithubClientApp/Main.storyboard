@@ -350,38 +350,31 @@
                                 </variation>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IgN-ZG-7RG">
-                                <rect key="frame" x="259" y="301" width="82" height="146"/>
+                                <rect key="frame" x="259" y="357" width="82" height="110"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqy-Nq-RiO">
-                                        <rect key="frame" x="0.0" y="0.0" width="63" height="26"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl0-OK-CEZ">
-                                        <rect key="frame" x="0.0" y="36" width="45" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dx8-Xi-I6E">
-                                        <rect key="frame" x="0.0" y="67" width="59" height="19"/>
+                                        <rect key="frame" x="0.0" y="31" width="59" height="19"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="createdAt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcU-Fs-P9o">
-                                        <rect key="frame" x="0.0" y="96" width="73" height="19"/>
+                                        <rect key="frame" x="0.0" y="60" width="73" height="19"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40B-44-rO9">
-                                        <rect key="frame" x="0.0" y="125" width="82" height="21"/>
+                                        <rect key="frame" x="0.0" y="89" width="82" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -391,7 +384,7 @@
                                 <animations/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7c-ck-0fN">
-                                <rect key="frame" x="220" y="505" width="160" height="30"/>
+                                <rect key="frame" x="220" y="493" width="160" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Search for Repositories"/>
                             </button>
@@ -402,13 +395,14 @@
                             <constraint firstItem="zAz-x8-ccP" firstAttribute="top" secondItem="wX4-RK-Ev1" secondAttribute="bottom" constant="75" id="Cm7-qa-TZl"/>
                             <constraint firstItem="zAz-x8-ccP" firstAttribute="centerX" secondItem="X8m-tV-xMh" secondAttribute="centerX" id="OR9-oN-lWe"/>
                             <constraint firstItem="C7c-ck-0fN" firstAttribute="centerX" secondItem="X8m-tV-xMh" secondAttribute="centerX" id="XaX-F4-em4"/>
-                            <constraint firstItem="C7c-ck-0fN" firstAttribute="top" secondItem="IgN-ZG-7RG" secondAttribute="bottom" constant="58" id="YD4-hT-Dyn"/>
+                            <constraint firstItem="C7c-ck-0fN" firstAttribute="top" secondItem="IgN-ZG-7RG" secondAttribute="bottom" constant="26" id="YD4-hT-Dyn"/>
                             <constraint firstItem="IgN-ZG-7RG" firstAttribute="centerX" secondItem="X8m-tV-xMh" secondAttribute="centerX" id="iGG-wg-BNM"/>
-                            <constraint firstItem="IgN-ZG-7RG" firstAttribute="top" secondItem="zAz-x8-ccP" secondAttribute="bottom" constant="8" symbolic="YES" id="wfM-iZ-uNM"/>
+                            <constraint firstItem="IgN-ZG-7RG" firstAttribute="top" secondItem="zAz-x8-ccP" secondAttribute="bottom" constant="64" id="wfM-iZ-uNM"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="userImageView" destination="zAz-x8-ccP" id="EXr-aZ-Tgi"/>
+                        <outlet property="userLoginLabel" destination="cl0-OK-CEZ" id="QVZ-Sn-791"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUy-x3-ACh" userLabel="First Responder" sceneMemberID="firstResponder"/>

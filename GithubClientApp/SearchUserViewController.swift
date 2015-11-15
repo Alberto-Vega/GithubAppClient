@@ -27,6 +27,7 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.collectionView.collectionViewLayout = CustomFlowLayout(columns: 2)
     }
     
@@ -99,8 +100,9 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.user = user
         return cell
     }
-    
+//    
 //    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        
 //        if let delegate = self.delegate {
 //            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! UserCollectionViewCell
 //            if let user = users[indexPath] {
@@ -109,7 +111,7 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
 //            
 //        }
 //    }
-//    
+
     // MARK: UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -120,14 +122,12 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     // MARK: prepareForSegue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "DetailViewController" {
+        if segue.identifier == UserDetailViewController.identifier() {
             if let cell = sender as? UICollectionViewCell, indexPath = collectionView.indexPathForCell(cell) {
                 guard let userDetailViewController = segue.destinationViewController as? UserDetailViewController else {return}
                 userDetailViewController.transitioningDelegate = self
                 
                 let user = users[indexPath.item]
-                print(user.profileImageUrl)
-                
                 userDetailViewController.selectedUser = user
             }
         }

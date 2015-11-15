@@ -16,6 +16,8 @@ class UserDetailViewController: UIViewController {
 
     @IBOutlet weak var userImageView: UIImageView!
     
+    @IBOutlet weak var userLoginLabel: UILabel!
+    
     var selectedUser: User? {
         didSet {
             print("Detail view controller received the user: \(selectedUser?.name)")
@@ -26,11 +28,12 @@ class UserDetailViewController: UIViewController {
         super.viewDidLoad()
         downloadImage()
 
-
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        self.userLoginLabel.text = selectedUser?.name
         self.userImageView.layer.cornerRadius =    userImageView.frame.size.width/2
         self.userImageView.clipsToBounds = true
         
