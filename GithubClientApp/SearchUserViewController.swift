@@ -36,6 +36,8 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func update(searchTerm: String) {
+        if String.validateInput(searchTerm) {
+
         do {
             let token = try MBGithubOAuth.shared.accessToken()
             
@@ -56,9 +58,6 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
                         
                         if let items = json["items"] as? [[String : AnyObject]] {
                             
-                            // login
-                            // avatar_url
-                            
                             var users = [User]()
                             
                             for item in items {
@@ -69,23 +68,18 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
                                 if let name = name, profileImageUrl = profileImageUrl {
                                     
                                     users.append(User(name: name, profileImageUrl: profileImageUrl))
-                                    
                                 }
-                                
                             }
-                            
                             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                                 self.users = users
                             })
-                            
                         }
-                        
                     }
-                    
                 }
                 
                 }.resume()
         } catch {}
+        }
     }
     
     // MARK: UICollectionViewDataSource
@@ -100,23 +94,14 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.user = user
         return cell
     }
-//    
-//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        
-//        if let delegate = self.delegate {
-//            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! UserCollectionViewCell
-//            if let user = users[indexPath] {
-//                
-//            }
-//            
-//        }
-//    }
 
     // MARK: UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text else {return}
+        if let searchTerm = searchBar.text {
+            
         self.update(searchTerm)
+        }
     }
     
     // MARK: prepareForSegue

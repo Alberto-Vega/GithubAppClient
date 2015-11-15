@@ -74,21 +74,30 @@ class UserDetailViewController: UIViewController, UIViewControllerTransitioningD
                 self.userImageView.transform = CGAffineTransformScale(self.userImageView.transform, 1.6, 1.6)
             }
         }
-        
     }
     
     // MARK: prepareForSegue
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-//                userDetailViewController.transitioningDelegate = self
-        
-            }
+//    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        if segue.identifier == SearchUserViewController.identifier() {
+//
+//        if let tabBarController = self.tabBarController, viewControllers = tabBarController.viewControllers {
+//            if let searchUserViewController = viewControllers[3] as? SearchUserViewController {
+//                let searchUserViewController = searchUserViewController as UIViewController
+//            
+////                            userDetailViewController.transitioningDelegate = self
+//                    self.tabBarController?.setViewControllers([searchUserViewController], animated: true)
+//                
+//                    }
+//            }
+//        }
+//        
+//            }
    
     // MARK: Transition
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self.customTransition
     }
-
 }

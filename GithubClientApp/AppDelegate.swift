@@ -75,30 +75,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
-    //    func presentOAuthViewController() {
-    //        if let homeViewController = self.window?.rootViewController as? HomeViewController, storyboard = homeViewController.storyboard {
-    //            if let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController {
-    //                homeViewController.addChildViewController(oauthViewController)
-    //                homeViewController.view.addSubview(oauthViewController.view)
-    //                oauthViewController.didMoveToParentViewController(homeViewController)
-    //                oauthViewController.oauthCompletionHandler = ({
-    //                    UIView.animateWithDuration(0.6, delay: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-    //                        oauthViewController.view.alpha = 0.0
-    //                        }, completion: { (finished) -> Void in
-    //                            oauthViewController.view.removeFromSuperview()
-    //                            oauthViewController.removeFromParentViewController()
-    //
-    //                            // Make the call for repositories.
-    //                            homeViewController.update()
-    //                    })
-    //                })
-    //
-    //                // We need a pointer to our OAuthViewController for application:sourceApplication:annotation:
-    //                self.oauthViewController = oauthViewController
-    //            }
-    //        }
-    //        
-    //    }
-    
 }

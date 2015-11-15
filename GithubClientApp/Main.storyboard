@@ -213,7 +213,7 @@
                             <constraint firstAttribute="trailing" secondItem="4Gu-zw-oYb" secondAttribute="trailing" id="O0w-0u-NFO"/>
                             <constraint firstItem="4Gu-zw-oYb" firstAttribute="leading" secondItem="tAu-Ig-1eK" secondAttribute="leading" id="VFf-4W-hbe"/>
                             <constraint firstItem="kwe-Zb-jKN" firstAttribute="leading" secondItem="tAu-Ig-1eK" secondAttribute="leading" id="ax2-gM-w9o"/>
-                            <constraint firstItem="XPI-bp-vO2" firstAttribute="top" secondItem="4Gu-zw-oYb" secondAttribute="bottom" constant="49" id="dkm-ja-oQX"/>
+                            <constraint firstItem="XPI-bp-vO2" firstAttribute="top" secondItem="4Gu-zw-oYb" secondAttribute="bottom" id="dkm-ja-oQX"/>
                             <constraint firstAttribute="trailing" secondItem="kwe-Zb-jKN" secondAttribute="trailing" id="zjk-1r-s4N"/>
                         </constraints>
                     </view>
@@ -226,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Js-zQ-aom" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1582" y="1323"/>
+            <point key="canvasLocation" x="870" y="1277"/>
         </scene>
         <!--Auth View Controller-->
         <scene sceneID="A1l-CZ-ysK">
@@ -390,7 +390,7 @@
                                 <state key="normal" title="Search for Repositories"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="eIg-8s-rPD" eventType="touchUpInside" id="Z6t-Pf-zqp"/>
-                                    <segue destination="dDK-3c-VWb" kind="show" id="jKh-qy-WTO"/>
+                                    <segue destination="dDK-3c-VWb" kind="show" identifier="SearchUserViewController" id="RzI-ig-e3O"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -412,7 +412,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUy-x3-ACh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2270" y="1323"/>
+            <point key="canvasLocation" x="1582" y="1277"/>
         </scene>
     </scenes>
     <resources>

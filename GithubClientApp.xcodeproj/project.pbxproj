@@ -23,6 +23,7 @@
 		BF3AC2CF1BF6CF01007AE415 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2CE1BF6CF01007AE415 /* CustomFlowLayout.swift */; settings = {ASSET_TAGS = (); }; };
 		BF3AC2D11BF6CF2C007AE415 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2D01BF6CF2C007AE415 /* UserCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		BF3AC2D31BF6D40D007AE415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3AC2D21BF6D40D007AE415 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		BF628F9F1BF913AC00F98F20 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF628F9E1BF913AC00F98F20 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		BFB976F41BF6EDC400C26C30 /* CustomModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		BF3AC2D01BF6CF2C007AE415 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF3AC2D21BF6D40D007AE415 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BF3AC2D41BF6E3D3007AE415 /* WithinTwoOfMultipleOfTen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WithinTwoOfMultipleOfTen.playground; sourceTree = "<group>"; };
+		BF628F9E1BF913AC00F98F20 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModalTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,8 +162,8 @@
 		BF3AC2C01BF6CBD4007AE415 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BF3AC2911BF6CADB007AE415 /* HomeViewController.swift */,
 				BF3AC2C11BF6CC32007AE415 /* OAuthViewController.swift */,
+				BF3AC2911BF6CADB007AE415 /* HomeViewController.swift */,
 				BF3AC2C31BF6CC58007AE415 /* SearchRepoViewController.swift */,
 				BF3AC2C51BF6CC72007AE415 /* SearchUserViewController.swift */,
 				BF23A7C91BF6F0600067A203 /* UserDetailViewController.swift */,
@@ -181,6 +183,7 @@
 		BF3AC2CC1BF6CDED007AE415 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				BF628F9E1BF913AC00F98F20 /* Extensions.swift */,
 				BF3AC28F1BF6CADB007AE415 /* AppDelegate.swift */,
 			);
 			name = SupportingFiles;
@@ -339,6 +342,7 @@
 				BF3AC2901BF6CADB007AE415 /* AppDelegate.swift in Sources */,
 				BF3AC2D11BF6CF2C007AE415 /* UserCollectionViewCell.swift in Sources */,
 				BFB976F41BF6EDC400C26C30 /* CustomModalTransition.swift in Sources */,
+				BF628F9F1BF913AC00F98F20 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
