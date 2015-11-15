@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class HomeViewController: UIViewController, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDataSource, SFSafariViewControllerDelegate {
     
     @IBOutlet var tableView: UITableView!
     
@@ -64,10 +65,11 @@ class HomeViewController: UIViewController, UITableViewDataSource {
                             
                             let name = eachRepository["name"] as? String
                             let id = eachRepository["id"] as? Int
+                            let url = eachRepository["svn_url"] as? String
                             
                             
-                            if let name = name, id = id {
-                                let repo = Repository(name: name, id: id)
+                            if let name = name, id = id, url = url  {
+                                let repo = Repository(name: name, id: id, url: url)
                                 repositories.append(repo)
                             }
                         }
@@ -96,9 +98,25 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = repository.name
         
         return cell
-        
     }
     
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let selectedRepositoryUrl = repositories[indexPath.row].url
+        print("The selected repo url for safari is: \(selectedRepositoryUrl)")
+        
+        let safariViewController = SFSafariViewController(URL: NSURL(string: selectedRepositoryUrl)!, entersReaderIfAvailable: true)
+        safariViewController.delegate = self
+        self.presentViewController(safariViewController, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: SFSafariViewControllerDelegate
+    
+    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 
 

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -16,7 +17,6 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
     var repositories = [Repository]() {
         didSet {
             self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
-            
         }
     }
     
@@ -60,15 +60,15 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
                                 
                                 let name = eachRepository["name"] as? String
                                 let id = eachRepository["id"] as? Int
+                                let repositoryUrl = eachRepository["svn_url"] as? String
                                 
-                                
-                                if let name = name, id = id {
-                                    let repo = Repository(name: name, id: id)
+                                if let name = name, id = id, repositoryUrl = repositoryUrl {
+                                    let repo = Repository(name: name, id: id, url: repositoryUrl)
                                     repositories.append(repo)
                                 }
                             }
                             
-                            // This is because NSURLSession comes back on a background q.
+                            // This is because NSURLSession comes back on a background queue.
                             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                                 self.repositories = repositories
                             })
@@ -92,11 +92,28 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let selectedRepositoryUrl = repositories[indexPath.row].url
+        print("The selected repo url for safari is: \(selectedRepositoryUrl)")
+        
+        let safariViewController = SFSafariViewController(URL: NSURL(string: selectedRepositoryUrl)!, entersReaderIfAvailable: true)
+        safariViewController.delegate = self
+        self.presentViewController(safariViewController, animated: true, completion: nil)
+    }
+
     // MARK: UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text else {return}
         self.update(searchTerm)
     }
+    
+    // MARK: SFSafariViewControllerDelegate
+    
+    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+
     
 }
