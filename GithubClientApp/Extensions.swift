@@ -8,21 +8,6 @@
 
 import Foundation
 
-//let string = "Hello World"
-//let pattern = "[^0-9a-zA-Z]"
-//
-//do {
-//    
-//    let regex = try NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
-//    let matchCount = regex.numberOfMatchesInString(string, options: [], range: NSRange(location: 0, length: string.characters.count))
-//    print(matchCount)
-//    
-//} catch let error {
-//    print(error)
-//}
-//
-//}
-
 extension String {
     
     static func validateInput(input: String) -> Bool {
@@ -36,6 +21,5 @@ extension String {
                 return false
             }
         } catch { return false }
-        
     }
 }

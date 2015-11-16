@@ -22,14 +22,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, SFSafariViewC
     override func viewDidLoad() {
         super.viewDidLoad()
         self.update()
-        
-//        if let tabBarController = self.tabBarController, viewControllers = tabBarController.viewControllers {
-//            if let searchUserViewController = viewControllers[2] as? SearchUserViewController {
-//                searchUserViewController.delegate = self
-//                self.searchUserViewController.reloadData()
-//            }
-//        }
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -110,7 +102,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, SFSafariViewC
         safariViewController.delegate = self
         self.presentViewController(safariViewController, animated: true, completion: nil)
     }
-    
     
     // MARK: SFSafariViewControllerDelegate
     

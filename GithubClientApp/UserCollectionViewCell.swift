@@ -25,7 +25,6 @@ class UserCollectionViewCell: UICollectionViewCell {
                     })
                 }
             }
-            
         }
     }
     
@@ -33,5 +32,4 @@ class UserCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         self.imageView.image = nil
     }
-    
 }

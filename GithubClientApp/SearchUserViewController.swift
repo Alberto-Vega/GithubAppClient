@@ -12,8 +12,8 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
+    
     let customTransition = CustomModalTransition(duration: 2.0)
-
     
     var users = [User]() {
         didSet {
@@ -37,7 +37,7 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func update(searchTerm: String) {
-
+        
         do {
             let token = try MBGithubOAuth.shared.accessToken()
             
@@ -64,10 +64,12 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
                                 
                                 let name = item["login"] as? String
                                 let profileImageUrl = item["avatar_url"] as? String
+                                let location = item["location"] as? String?
                                 
-                                if let name = name, profileImageUrl = profileImageUrl {
+                                if let name = name, profileImageUrl = profileImageUrl, location = location {
                                     
-                                    users.append(User(name: name, profileImageUrl: profileImageUrl))
+                                    users.append(User(name: name, profileImageUrl: profileImageUrl, location: location))
+                                    print(users)
                                 }
                             }
                             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
@@ -79,7 +81,6 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
                 
                 }.resume()
         } catch {}
-        
     }
     
     // MARK: UICollectionViewDataSource
@@ -94,7 +95,7 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.user = user
         return cell
     }
-
+    
     // MARK: UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -109,7 +110,6 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         }
     }
-    
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         self.searchBar.resignFirstResponder()

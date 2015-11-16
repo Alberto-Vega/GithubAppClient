@@ -12,24 +12,19 @@ import UIKit
 
 class MyProfileViewController: UIViewController {
     
-
+    
     
     @IBOutlet weak var myProfilePictureView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var joinedLabel: UILabel!
-    @IBOutlet weak var followersLabel: UILabel!
-    @IBOutlet weak var starredLabel: UILabel!
-    @IBOutlet weak var followingLabel: UILabel!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    private var user:User?
-        {
-        didSet
-        {
-            if let user = user
-            {
+    @IBOutlet weak var myLocationLabel: UILabel!
+    
+    private var user:User? {
+        didSet {
+            if let user = user {
                 nameLabel.text = user.name
                 downloadImage()
+                myLocationLabel.text = user.location
             }
         }
     }
@@ -37,15 +32,17 @@ class MyProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.update()
-
-        
     }
-
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        setupRoundedImage()
+        Animation.expandImage(myProfilePictureView)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        Animation.animateImageRotatingZoomIn(myProfilePictureView)
     }
     
     func update() {
@@ -68,19 +65,19 @@ class MyProfileViewController: UIViewController {
                     if let userJSON = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [String : AnyObject] {
                         var user:User?
                         
-                            let name = userJSON["login"] as? String
-                            let id = userJSON["id"] as? Int
-                            let url = userJSON["url"] as? String
-                            let avatarUrl = userJSON["avatar_url"] as? String
-                            
-                            
-                            if let name = name, id = id, url = url, avatarUrl = avatarUrl  {
-                                let userProfile = User(name: name, profileImageUrl: avatarUrl)
-                                print(" Profile parsed is: \(userProfile)")
-                                user = userProfile
-                            }
+                        let name = userJSON["login"] as? String
+                        let id = userJSON["id"] as? Int
+                        let url = userJSON["url"] as? String
+                        let avatarUrl = userJSON["avatar_url"] as? String
+                        let location = userJSON["location"] as? String
                         
-                            
+                        
+                        if let name = name, id = id, url = url, avatarUrl = avatarUrl, location = location  {
+                            let userProfile = User(name: name, profileImageUrl: avatarUrl, location: location)
+                            print(" Profile parsed is: \(userProfile)")
+                            user = userProfile
+                        }
+                        
                         // This is because NSURLSession comes back on a background q.
                         NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                             self.user = user
@@ -90,6 +87,10 @@ class MyProfileViewController: UIViewController {
                 }
                 }.resume()
         } catch {}
+    }
+    
+    func setupRoundedImage() {
+        self.myProfilePictureView.layer.cornerRadius = myProfilePictureView.frame.size.width/2
     }
     
     func downloadImage () {
@@ -107,17 +108,4 @@ class MyProfileViewController: UIViewController {
             })
         })
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

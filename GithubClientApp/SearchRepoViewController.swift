@@ -53,11 +53,9 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
                         
                         if let items = dictionaryOfRepositories["items"] as? [[String : AnyObject]] {
                             
-                            
                             var repositories = [Repository]()
                             
                             for eachRepository in items {
-                                
                                 let name = eachRepository["name"] as? String
                                 let id = eachRepository["id"] as? Int
                                 let repositoryUrl = eachRepository["svn_url"] as? String
@@ -101,7 +99,7 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
         safariViewController.delegate = self
         self.presentViewController(safariViewController, animated: true, completion: nil)
     }
-
+    
     // MARK: UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -116,7 +114,6 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
     }
-
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
         self.searchBar.resignFirstResponder()
@@ -131,5 +128,5 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
-    }    
+    }
 }

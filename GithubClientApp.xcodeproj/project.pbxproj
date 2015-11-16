@@ -25,6 +25,7 @@
 		BF3AC2D31BF6D40D007AE415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3AC2D21BF6D40D007AE415 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		BF628F9F1BF913AC00F98F20 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF628F9E1BF913AC00F98F20 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
 		BF6425C21BF9ADAA00D19DEE /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6425C11BF9ADAA00D19DEE /* MyProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BF6425C41BF9BC7700D19DEE /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6425C31BF9BC7700D19DEE /* Animation.swift */; settings = {ASSET_TAGS = (); }; };
 		BFB976F41BF6EDC400C26C30 /* CustomModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		BF3AC2D41BF6E3D3007AE415 /* WithinTwoOfMultipleOfTen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WithinTwoOfMultipleOfTen.playground; sourceTree = "<group>"; };
 		BF628F9E1BF913AC00F98F20 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BF6425C11BF9ADAA00D19DEE /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		BF6425C31BF9BC7700D19DEE /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModalTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 			children = (
 				BF628F9E1BF913AC00F98F20 /* Extensions.swift */,
 				BF3AC28F1BF6CADB007AE415 /* AppDelegate.swift */,
+				BF6425C31BF9BC7700D19DEE /* Animation.swift */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				BF3AC2901BF6CADB007AE415 /* AppDelegate.swift in Sources */,
 				BF3AC2D11BF6CF2C007AE415 /* UserCollectionViewCell.swift in Sources */,
 				BFB976F41BF6EDC400C26C30 /* CustomModalTransition.swift in Sources */,
+				BF6425C41BF9BC7700D19DEE /* Animation.swift in Sources */,
 				BF628F9F1BF913AC00F98F20 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

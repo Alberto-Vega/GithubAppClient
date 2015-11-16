@@ -14,10 +14,11 @@ class User {
     var id: Int?
     var profileImageUrl: String
     var url: String?
+    var location: String?
     
-    init(name: String, profileImageUrl: String) {
+    init(name: String, profileImageUrl: String, location: String?) {
         self.name = name
         self.profileImageUrl = profileImageUrl
+        self.location = location
     }
-    
 }
