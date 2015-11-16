@@ -334,6 +334,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="GJS-Uq-8bB"/>
                         <segue destination="AXr-m6-j3m" kind="relationship" relationship="viewControllers" id="n39-cM-XNH"/>
                         <segue destination="F5y-oZ-vAb" kind="relationship" relationship="viewControllers" id="Lr5-To-rVo"/>
+                        <segue destination="IGo-Zs-lxm" kind="relationship" relationship="viewControllers" id="hqk-bK-ny6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMS-ge-hVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -431,10 +432,10 @@
             </objects>
             <point key="canvasLocation" x="1582" y="1277"/>
         </scene>
-        <!--User Detail View Controller-->
+        <!--My Profile-->
         <scene sceneID="6Hx-k9-pNJ">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="IGo-Zs-lxm" customClass="UserDetailViewController" customModule="GithubClientApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyProfileViewController" id="IGo-Zs-lxm" customClass="MyProfileViewController" customModule="GithubClientApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dn6-5h-5ny"/>
                         <viewControllerLayoutGuide type="bottom" id="wDu-Yf-XPP"/>
@@ -460,7 +461,7 @@
                                 </variation>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="t9J-4o-k78">
-                                <rect key="frame" x="259" y="357" width="82" height="110"/>
+                                <rect key="frame" x="259" y="364" width="82" height="110"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bei-2U-hIh">
                                         <rect key="frame" x="0.0" y="0.0" width="45" height="21"/>
@@ -493,29 +494,20 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3d-BQ-bh7">
-                                <rect key="frame" x="220" y="493" width="160" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Search for Repositories"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="IGo-Zs-lxm" eventType="touchUpInside" id="q9D-5H-Uey"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zDg-TE-xhO" firstAttribute="top" secondItem="dn6-5h-5ny" secondAttribute="bottom" constant="75" id="10g-sO-tdB"/>
+                            <constraint firstItem="zDg-TE-xhO" firstAttribute="top" secondItem="dn6-5h-5ny" secondAttribute="bottom" constant="31" id="10g-sO-tdB"/>
                             <constraint firstItem="zDg-TE-xhO" firstAttribute="centerX" secondItem="2Rc-Cl-wT1" secondAttribute="centerX" id="D65-FM-xNF"/>
                             <constraint firstItem="t9J-4o-k78" firstAttribute="centerX" secondItem="2Rc-Cl-wT1" secondAttribute="centerX" id="Ofq-Ik-viG"/>
-                            <constraint firstItem="G3d-BQ-bh7" firstAttribute="top" secondItem="t9J-4o-k78" secondAttribute="bottom" constant="26" id="dxC-nf-4e8"/>
-                            <constraint firstItem="G3d-BQ-bh7" firstAttribute="centerX" secondItem="2Rc-Cl-wT1" secondAttribute="centerX" id="u94-2P-fJk"/>
-                            <constraint firstItem="t9J-4o-k78" firstAttribute="top" secondItem="zDg-TE-xhO" secondAttribute="bottom" constant="64" id="vqx-r0-ou3"/>
+                            <constraint firstItem="t9J-4o-k78" firstAttribute="top" secondItem="zDg-TE-xhO" secondAttribute="bottom" constant="71" id="vqx-r0-ou3"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="My Profile" id="V9X-ar-84M"/>
                     <connections>
-                        <outlet property="userImageView" destination="zDg-TE-xhO" id="LOJ-ui-fLc"/>
-                        <outlet property="userLoginLabel" destination="bei-2U-hIh" id="Y67-oq-cR2"/>
+                        <outlet property="myProfilePictureView" destination="zDg-TE-xhO" id="7LE-6b-Ms0"/>
+                        <outlet property="nameLabel" destination="bei-2U-hIh" id="6VU-C8-ftf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="heL-ZZ-hDq" userLabel="First Responder" sceneMemberID="firstResponder"/>

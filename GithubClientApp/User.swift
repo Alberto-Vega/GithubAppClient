@@ -11,7 +11,9 @@ import Foundation
 class User {
     
     var name: String
+    var id: Int?
     var profileImageUrl: String
+    var url: String?
     
     init(name: String, profileImageUrl: String) {
         self.name = name
