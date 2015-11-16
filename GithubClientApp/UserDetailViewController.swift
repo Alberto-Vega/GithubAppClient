@@ -61,7 +61,6 @@ class UserDetailViewController: UIViewController, UIViewControllerTransitioningD
                     self.userImageView.image = image
                 })
             })
-        
     }
 
     @IBAction func backButtonPressed(sender: AnyObject) {
@@ -75,25 +74,7 @@ class UserDetailViewController: UIViewController, UIViewControllerTransitioningD
             }
         }
     }
-    
-    // MARK: prepareForSegue
-//    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        if segue.identifier == SearchUserViewController.identifier() {
-//
-//        if let tabBarController = self.tabBarController, viewControllers = tabBarController.viewControllers {
-//            if let searchUserViewController = viewControllers[3] as? SearchUserViewController {
-//                let searchUserViewController = searchUserViewController as UIViewController
-//            
-////                            userDetailViewController.transitioningDelegate = self
-//                    self.tabBarController?.setViewControllers([searchUserViewController], animated: true)
-//                
-//                    }
-//            }
-//        }
-//        
-//            }
+
    
     // MARK: Transition
     

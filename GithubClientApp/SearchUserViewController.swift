@@ -29,6 +29,7 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
         super.viewDidLoad()
         
         self.collectionView.collectionViewLayout = CustomFlowLayout(columns: 2)
+        searchBar.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,7 +37,6 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func update(searchTerm: String) {
-        if String.validateInput(searchTerm) {
 
         do {
             let token = try MBGithubOAuth.shared.accessToken()
@@ -79,7 +79,7 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
                 
                 }.resume()
         } catch {}
-        }
+        
     }
     
     // MARK: UICollectionViewDataSource
@@ -99,9 +99,25 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         if let searchTerm = searchBar.text {
-            
-        self.update(searchTerm)
+            if String.validateInput(searchTerm) {
+                self.update(searchTerm)
+            } else {
+                let alert = UIAlertController(title: "Invalid Search", message: "Your query for '\(searchBar.text!)' contains character(s) that will be ignored", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "Please Try Again!", style: .Cancel, handler: nil)
+                alert.addAction(action)
+                presentViewController(alert, animated: true, completion: nil)
+            }
         }
+    }
+    
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
+    
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        self.searchBar.resignFirstResponder()
+        return true
     }
     
     // MARK: prepareForSegue

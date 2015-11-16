@@ -105,8 +105,26 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text else {return}
-        self.update(searchTerm)
+        if let searchTerm = searchBar.text {
+            if String.validateInput(searchTerm) {
+                self.update(searchTerm)
+            } else {
+                let alert = UIAlertController(title: "Invalid Search", message: "Your query for '\(searchBar.text!)' contains character(s) that will be ignored", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "Please Try Again!", style: .Cancel, handler: nil)
+                alert.addAction(action)
+                presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
+    
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        self.searchBar.resignFirstResponder()
+        return true
     }
     
     // MARK: SFSafariViewControllerDelegate
