@@ -131,7 +131,5 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
-    }
-
-    
+    }    
 }

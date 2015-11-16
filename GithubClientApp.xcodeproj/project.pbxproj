@@ -24,6 +24,7 @@
 		BF3AC2D11BF6CF2C007AE415 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2D01BF6CF2C007AE415 /* UserCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		BF3AC2D31BF6D40D007AE415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3AC2D21BF6D40D007AE415 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		BF628F9F1BF913AC00F98F20 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF628F9E1BF913AC00F98F20 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
+		BF6425C01BF99F5A00D19DEE /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6425BF1BF99F5A00D19DEE /* MyProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		BFB976F41BF6EDC400C26C30 /* CustomModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		BF3AC2D21BF6D40D007AE415 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BF3AC2D41BF6E3D3007AE415 /* WithinTwoOfMultipleOfTen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WithinTwoOfMultipleOfTen.playground; sourceTree = "<group>"; };
 		BF628F9E1BF913AC00F98F20 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BF6425BF1BF99F5A00D19DEE /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModalTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 		BF3AC2C01BF6CBD4007AE415 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BF6425BF1BF99F5A00D19DEE /* MyProfileViewController.swift */,
 				BF3AC2C11BF6CC32007AE415 /* OAuthViewController.swift */,
 				BF3AC2911BF6CADB007AE415 /* HomeViewController.swift */,
 				BF3AC2C31BF6CC58007AE415 /* SearchRepoViewController.swift */,
@@ -332,6 +335,7 @@
 			files = (
 				BF3AC2C91BF6CD81007AE415 /* Repository.swift in Sources */,
 				BF3AC2C21BF6CC32007AE415 /* OAuthViewController.swift in Sources */,
+				BF6425C01BF99F5A00D19DEE /* MyProfileViewController.swift in Sources */,
 				BF23A7CA1BF6F0600067A203 /* UserDetailViewController.swift in Sources */,
 				BF3AC2C61BF6CC72007AE415 /* SearchUserViewController.swift in Sources */,
 				BF3AC2C41BF6CC58007AE415 /* SearchRepoViewController.swift in Sources */,

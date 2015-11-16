@@ -31,6 +31,7 @@ class UserDetailViewController: UIViewController, UIViewControllerTransitioningD
         super.viewDidLoad()
         downloadImage()
 
+
         // Do any additional setup after loading the view.
     }
     
@@ -39,8 +40,30 @@ class UserDetailViewController: UIViewController, UIViewControllerTransitioningD
         self.userLoginLabel.text = selectedUser?.name
         self.userImageView.layer.cornerRadius =    userImageView.frame.size.width/2
         self.userImageView.clipsToBounds = true
+                                self.userImageView.transform = CGAffineTransformScale(self.userImageView.transform, 5.2, 5.2)
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        // Example of rotating view 45 degrees clockwise.
+//                        self.userImageView.transform = CGAffineTransformScale(self.userImageView.transform, 5.2, 5.2)
+//        for _ in 0...6 {
+//            UIView.animateWithDuration(2.4) { () -> Void in
+//                self.userImageView.transform = CGAffineTransformRotate(self.userImageView.transform, CGFloat(M_PI * 45 / 180.0))
+//                self.userImageView.transform = CGAffineTransformScale(self.userImageView.transform, 1.2, 1.2)
+//            }
+        
+//             Example of rotating view 45 degrees clockwise.
+        
+            for _ in 0...7 {
+                UIView.animateWithDuration(1.2) { () -> Void in
+                    self.userImageView.transform = CGAffineTransformRotate(self.userImageView.transform, CGFloat(M_PI * 45 / 180.0))
+                    self.userImageView.transform = CGAffineTransformScale(self.userImageView.transform, 0.82, 0.82)
+                }
+            }
+        }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -70,7 +93,7 @@ class UserDetailViewController: UIViewController, UIViewControllerTransitioningD
         for _ in 0...6 {
             UIView.animateWithDuration(0.4) { () -> Void in
                 self.userImageView.transform = CGAffineTransformRotate(self.userImageView.transform, CGFloat(M_PI * 45 / 180.0))
-                self.userImageView.transform = CGAffineTransformScale(self.userImageView.transform, 1.6, 1.6)
+                self.userImageView.transform = CGAffineTransformScale(self.userImageView.transform, 0.6, 0.6)
             }
         }
     }
