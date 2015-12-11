@@ -16,7 +16,6 @@ class MyProfileViewController: UIViewController {
     
     @IBOutlet weak var myProfilePictureView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var myLocationLabel: UILabel!
     
     private var user:User? {
@@ -32,17 +31,19 @@ class MyProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.update()
+        setupRoundedImage()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        setupRoundedImage()
         Animation.expandImage(myProfilePictureView)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         Animation.animateImageRotatingZoomIn(myProfilePictureView)
+        
     }
     
     func update() {
@@ -63,7 +64,7 @@ class MyProfileViewController: UIViewController {
                 
                 if let data = data {
                     print(data)
-
+                    
                     if let userJSON = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [String : AnyObject] {
                         
                         var user:User?

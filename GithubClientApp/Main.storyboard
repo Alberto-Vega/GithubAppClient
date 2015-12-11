@@ -392,21 +392,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDg-TE-xhO">
-                                <rect key="frame" x="201" y="95" width="198" height="198"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="198" id="C5n-BW-u4C"/>
-                                    <constraint firstAttribute="width" constant="198" id="eYH-AU-GP0"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="198" id="lbc-Uh-WMK"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="198" id="z7j-A7-H43"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="lbc-Uh-WMK"/>
-                                        <exclude reference="z7j-A7-H43"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="t9J-4o-k78">
                                 <rect key="frame" x="271" y="364" width="59" height="51"/>
                                 <subviews>
@@ -424,6 +409,21 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDg-TE-xhO">
+                                <rect key="frame" x="201" y="95" width="198" height="198"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="198" id="C5n-BW-u4C"/>
+                                    <constraint firstAttribute="width" constant="198" id="eYH-AU-GP0"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="198" id="lbc-Uh-WMK"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="198" id="z7j-A7-H43"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="lbc-Uh-WMK"/>
+                                        <exclude reference="z7j-A7-H43"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -446,6 +446,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Octocat" width="512" height="512"/>
+        <image name="Octocat" width="1500" height="1125"/>
     </resources>
 </document>
