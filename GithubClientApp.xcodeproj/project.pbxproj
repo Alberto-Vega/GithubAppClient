@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF23A7CA1BF6F0600067A203 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF23A7C91BF6F0600067A203 /* UserDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		BF23A7CA1BF6F0600067A203 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF23A7C91BF6F0600067A203 /* UserDetailViewController.swift */; };
 		BF3AC2901BF6CADB007AE415 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC28F1BF6CADB007AE415 /* AppDelegate.swift */; };
 		BF3AC2921BF6CADB007AE415 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2911BF6CADB007AE415 /* HomeViewController.swift */; };
 		BF3AC2971BF6CADB007AE415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3AC2961BF6CADB007AE415 /* Assets.xcassets */; };
 		BF3AC29A1BF6CADB007AE415 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3AC2981BF6CADB007AE415 /* LaunchScreen.storyboard */; };
 		BF3AC2A51BF6CADB007AE415 /* GithubClientAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2A41BF6CADB007AE415 /* GithubClientAppTests.swift */; };
 		BF3AC2B01BF6CADB007AE415 /* GithubClientAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2AF1BF6CADB007AE415 /* GithubClientAppUITests.swift */; };
-		BF3AC2BF1BF6CB9E007AE415 /* MBGithubOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2BE1BF6CB9E007AE415 /* MBGithubOAuth.swift */; settings = {ASSET_TAGS = (); }; };
-		BF3AC2C21BF6CC32007AE415 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2C11BF6CC32007AE415 /* OAuthViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		BF3AC2C41BF6CC58007AE415 /* SearchRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2C31BF6CC58007AE415 /* SearchRepoViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		BF3AC2C61BF6CC72007AE415 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2C51BF6CC72007AE415 /* SearchUserViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		BF3AC2C91BF6CD81007AE415 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2C81BF6CD81007AE415 /* Repository.swift */; settings = {ASSET_TAGS = (); }; };
-		BF3AC2CB1BF6CDA9007AE415 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2CA1BF6CDA9007AE415 /* User.swift */; settings = {ASSET_TAGS = (); }; };
-		BF3AC2CF1BF6CF01007AE415 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2CE1BF6CF01007AE415 /* CustomFlowLayout.swift */; settings = {ASSET_TAGS = (); }; };
-		BF3AC2D11BF6CF2C007AE415 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2D01BF6CF2C007AE415 /* UserCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		BF3AC2D31BF6D40D007AE415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3AC2D21BF6D40D007AE415 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		BF628F9F1BF913AC00F98F20 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF628F9E1BF913AC00F98F20 /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
-		BF6425C21BF9ADAA00D19DEE /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6425C11BF9ADAA00D19DEE /* MyProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		BF6425C41BF9BC7700D19DEE /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6425C31BF9BC7700D19DEE /* Animation.swift */; settings = {ASSET_TAGS = (); }; };
-		BFB976F41BF6EDC400C26C30 /* CustomModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */; settings = {ASSET_TAGS = (); }; };
+		BF3AC2BF1BF6CB9E007AE415 /* MBGithubOAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2BE1BF6CB9E007AE415 /* MBGithubOAuth.swift */; };
+		BF3AC2C21BF6CC32007AE415 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2C11BF6CC32007AE415 /* OAuthViewController.swift */; };
+		BF3AC2C41BF6CC58007AE415 /* SearchRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2C31BF6CC58007AE415 /* SearchRepoViewController.swift */; };
+		BF3AC2C61BF6CC72007AE415 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2C51BF6CC72007AE415 /* SearchUserViewController.swift */; };
+		BF3AC2C91BF6CD81007AE415 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2C81BF6CD81007AE415 /* Repository.swift */; };
+		BF3AC2CB1BF6CDA9007AE415 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2CA1BF6CDA9007AE415 /* User.swift */; };
+		BF3AC2CF1BF6CF01007AE415 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2CE1BF6CF01007AE415 /* CustomFlowLayout.swift */; };
+		BF3AC2D11BF6CF2C007AE415 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3AC2D01BF6CF2C007AE415 /* UserCollectionViewCell.swift */; };
+		BF3AC2D31BF6D40D007AE415 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF3AC2D21BF6D40D007AE415 /* Main.storyboard */; };
+		BF628F9F1BF913AC00F98F20 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF628F9E1BF913AC00F98F20 /* Extensions.swift */; };
+		BF6425C21BF9ADAA00D19DEE /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6425C11BF9ADAA00D19DEE /* MyProfileViewController.swift */; };
+		BF6425C41BF9BC7700D19DEE /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6425C31BF9BC7700D19DEE /* Animation.swift */; };
+		BFB976F41BF6EDC400C26C30 /* CustomModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,8 @@
 		BF3AC2CE1BF6CF01007AE415 /* CustomFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
 		BF3AC2D01BF6CF2C007AE415 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF3AC2D21BF6D40D007AE415 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		BF3AC2D41BF6E3D3007AE415 /* WithinTwoOfMultipleOfTen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WithinTwoOfMultipleOfTen.playground; sourceTree = "<group>"; };
+		BF5808061C1AAA8A001F375F /* WithinTwoOfMultipleOfTen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WithinTwoOfMultipleOfTen.playground; sourceTree = "<group>"; };
+		BF5808071C1AAA97001F375F /* DuplicateChars.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DuplicateChars.playground; sourceTree = "<group>"; };
 		BF628F9E1BF913AC00F98F20 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BF6425C11BF9ADAA00D19DEE /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		BF6425C31BF9BC7700D19DEE /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
@@ -104,6 +105,8 @@
 		BF3AC2831BF6CADA007AE415 = {
 			isa = PBXGroup;
 			children = (
+				BF5808071C1AAA97001F375F /* DuplicateChars.playground */,
+				BF5808061C1AAA8A001F375F /* WithinTwoOfMultipleOfTen.playground */,
 				BF3AC28E1BF6CADB007AE415 /* GithubClientApp */,
 				BF3AC2A31BF6CADB007AE415 /* GithubClientAppTests */,
 				BF3AC2AE1BF6CADB007AE415 /* GithubClientAppUITests */,
@@ -124,7 +127,6 @@
 		BF3AC28E1BF6CADB007AE415 /* GithubClientApp */ = {
 			isa = PBXGroup;
 			children = (
-				BF3AC2D41BF6E3D3007AE415 /* WithinTwoOfMultipleOfTen.playground */,
 				BF3AC2BD1BF6CB75007AE415 /* API */,
 				BF3AC2C01BF6CBD4007AE415 /* Controllers */,
 				BF3AC2C71BF6CD25007AE415 /* Model */,
