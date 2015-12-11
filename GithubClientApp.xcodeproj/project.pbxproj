@@ -71,6 +71,7 @@
 		BF3AC2D21BF6D40D007AE415 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BF5808061C1AAA8A001F375F /* WithinTwoOfMultipleOfTen.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WithinTwoOfMultipleOfTen.playground; sourceTree = "<group>"; };
 		BF5808071C1AAA97001F375F /* DuplicateChars.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DuplicateChars.playground; sourceTree = "<group>"; };
+		BF5808081C1AAD9F001F375F /* midThreeElementsOfAnOddArray.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = midThreeElementsOfAnOddArray.playground; sourceTree = "<group>"; };
 		BF628F9E1BF913AC00F98F20 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BF6425C11BF9ADAA00D19DEE /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		BF6425C31BF9BC7700D19DEE /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		BF3AC2831BF6CADA007AE415 = {
 			isa = PBXGroup;
 			children = (
+				BF5808081C1AAD9F001F375F /* midThreeElementsOfAnOddArray.playground */,
 				BF5808071C1AAA97001F375F /* DuplicateChars.playground */,
 				BF5808061C1AAA8A001F375F /* WithinTwoOfMultipleOfTen.playground */,
 				BF3AC28E1BF6CADB007AE415 /* GithubClientApp */,
