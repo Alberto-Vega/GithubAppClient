@@ -65,7 +65,7 @@ class UserDetailViewController: UIViewController, UIViewControllerTransitioningD
     func setupViews() {
         self.userLoginLabel.text = selectedUser?.name
         self.userLocationLabel.text = selectedUser?.location
-        self.userImageView.layer.cornerRadius =    userImageView.frame.size.width/2
+        self.userImageView.layer.cornerRadius = userImageView.frame.size.width/2
     }
     
     // MARK: Transition

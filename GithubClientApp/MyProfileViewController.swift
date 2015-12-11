@@ -62,7 +62,10 @@ class MyProfileViewController: UIViewController {
                 }
                 
                 if let data = data {
+                    print(data)
+
                     if let userJSON = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [String : AnyObject] {
+                        
                         var user:User?
                         
                         let name = userJSON["login"] as? String
