@@ -47,7 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func presentOAuthViewController() {
         
         if let tabbarController = self.window?.rootViewController as? UITabBarController, homeViewController = tabbarController.viewControllers?.first as? HomeViewController, storyboard = tabbarController.storyboard {
-            
+
+        
             if let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController {
                 
                 homeViewController.addChildViewController(oauthViewController)

@@ -9,38 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GithubClientApp/SearchRepoViewController.swift"
-            timestampString = "472168866.899533"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "searchBarSearchButtonClicked(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GithubClientApp/SearchRepoViewController.swift"
-            timestampString = "472168866.899533"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "searchBarSearchButtonClicked(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "GithubClientApp/AppDelegate.swift"
             timestampString = "472169054.303481"
             startingColumnNumber = "9223372036854775807"
@@ -74,7 +42,7 @@
                   moduleName = "GithubClientApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/albertovega/Documents/Development/DevAccelerator/GithubClientApp/GithubClientApp/AppDelegate.swift"
-                  timestampString = "472170011.028582"
+                  timestampString = "472172017.286069"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "26"
@@ -89,7 +57,7 @@
                   moduleName = "GithubClientApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/albertovega/Documents/Development/DevAccelerator/GithubClientApp/GithubClientApp/AppDelegate.swift"
-                  timestampString = "472170011.028913"
+                  timestampString = "472172017.286316"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -122,27 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GithubClientApp/AppDelegate.swift"
-            timestampString = "472169192.038828"
+            timestampString = "472172016.256705"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "presentOAuthViewController()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GithubClientApp/AppDelegate.swift"
-            timestampString = "472169194.421271"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "presentOAuthViewController()"
             landmarkType = "5">
          </BreakpointContent>
