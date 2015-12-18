@@ -49,15 +49,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func presentOAuthViewController() {
         
-        if let tabbarController = self.window?.rootViewController as? UITabBarController, homeViewController = tabbarController.viewControllers?.first as? HomeViewController, storyboard = tabbarController.storyboard {
-            
+//        if let tabbarController = self.window?.rootViewController as? UITabBarController, homeViewController = tabbarController.viewControllers?.first as? HomeViewController, storyboard = tabbarController.storyboard {
+        
+        if let navBarController = self.window?.rootViewController as? UINavigationController, homeViewController = navBarController.viewControllers.first as? UITabBarController, storyboard = navBarController.storyboard {
+        
             if let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController {
                 
                 homeViewController.addChildViewController(oauthViewController)
                 homeViewController.view.addSubview(oauthViewController.view)
                 oauthViewController.didMoveToParentViewController(homeViewController)
                 
-                tabbarController.tabBar.hidden = true
+//                navBarController.topViewController = homeViewController
+                
+                homeViewController
                 
                 oauthViewController.oauthCompletionHandler = ({
                     UIView.animateWithDuration(0.6, delay: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
@@ -66,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             oauthViewController.view.removeFromSuperview()
                             oauthViewController.removeFromParentViewController()
                             
-                            tabbarController.tabBar.hidden = false
+                            navBarController.topViewController.hidden = false
                             
                             // Make the call for repositories.
                             homeViewController.update()
