@@ -17,7 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var oauthViewController: OAuthViewController?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.checkOAuthStatus()
+//        self.checkOAuthStatus()
+        if let token = KeychainService.loadFromKeychain() {
+            
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            if let loginVC = storyboard.instantiateViewControllerWithIdentifier("OAuthViewController") as? OAuthViewController {
+                window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                window?.makeKeyAndVisible()
+                window?.rootViewController = loginVC
+            }
+        }
+        
+        
         return true
     }
     
