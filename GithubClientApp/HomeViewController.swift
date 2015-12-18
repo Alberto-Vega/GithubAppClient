@@ -34,8 +34,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, SFSafariViewC
     
     func update() {
         
-        do {
-            let token = try MBGithubOAuth.shared.accessToken()
+            let token = OAuthClient.shared.token
             
             let url = NSURL(string: "https://api.github.com/user/repos?access_token=\(token)")!
             
@@ -73,7 +72,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, SFSafariViewC
                     }
                 }
                 }.resume()
-        } catch {}
     }
     
     // MARK: UITableViewDataSource

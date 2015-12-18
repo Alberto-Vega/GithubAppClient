@@ -48,8 +48,7 @@ class MyProfileViewController: UIViewController {
     
     func update() {
         
-        do {
-            let token = try MBGithubOAuth.shared.accessToken()
+            let token = OAuthClient.shared.token
             
             let url = NSURL(string: "https://api.github.com/user?access_token=\(token)")!
             
@@ -89,7 +88,6 @@ class MyProfileViewController: UIViewController {
                     }
                 }
                 }.resume()
-        } catch { }
     }
     
     func setupRoundedImage() {

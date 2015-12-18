@@ -21,30 +21,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        MBGithubOAuth.shared.tokenRequestWithCallback(url, options: SaveOptions.UserDefaults) { (success) -> () in
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        
+        OAuthClient.shared.exchangeCodeInURL(url) { (success) -> () in
             if success {
-                if let oauthViewController = self.oauthViewController {
-                    oauthViewController.processOauthRequest()
-                }
+                guard let oauthViewController = self.oauthViewController else {return}
+                oauthViewController.processLogin()
             }
         }
+        
         return true
     }
     
     // MARK: Setup
     
     func checkOAuthStatus() {
-        
-        do {
-            
-            let token = try MBGithubOAuth.shared.accessToken()
-            print("The token retrieved in APP delegate: \(token)")
-            
-        } catch _ {
-            
-            self.presentOAuthViewController() }
-        
+        if let _ = OAuthClient.shared.token  {
+            print("We have a token at did finishLaunching with options")
+        } else {
+            print("We do not have a token at did finishLaunching with options")
+            self.presentOAuthViewController()
+        }
     }
     
     func presentOAuthViewController() {
@@ -59,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 tabbarController.tabBar.hidden = true
                 
-                oauthViewController.oauthCompletionHandler = ({
+                oauthViewController.oAuthCompletionHandler = ({
                     UIView.animateWithDuration(0.6, delay: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                         oauthViewController.view.alpha = 0.0
                         }, completion: { (finished) -> Void in

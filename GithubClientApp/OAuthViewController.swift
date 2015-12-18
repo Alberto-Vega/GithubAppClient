@@ -12,7 +12,7 @@ typealias OAuthViewControllerCompletionHandler = () -> ()
 
 class OAuthViewController: UIViewController {
     
-    var oauthCompletionHandler: OAuthViewControllerCompletionHandler?
+    var oAuthCompletionHandler: OAuthViewControllerCompletionHandler?
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
@@ -34,18 +34,26 @@ class OAuthViewController: UIViewController {
         self.loginButton.layer.cornerRadius = 3.0
     }
     
-    func processOauthRequest() {
-        if let oauthCompletionHandler = self.oauthCompletionHandler {
-            oauthCompletionHandler()
+    func processLogin() {
+        if let oAuthCompletionHandler = self.oAuthCompletionHandler {
+            oAuthCompletionHandler()
         }
     }
+    
+//    func processOauthRequest() {
+//        if let oauthCompletionHandler = self.oauthCompletionHandler {
+//            oauthCompletionHandler()
+//        }
+//    }
     
     @IBAction func loginButtonSelected(sender: UIButton) {
         self.activityIndicatorView.startAnimating()
         NSOperationQueue().addOperationWithBlock { () -> Void in
             usleep(1000000)
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                MBGithubOAuth.shared.oauthRequestWith(["scope" : "email,user,repo"])
+                
+                OAuthClient.shared.requestGithubAccess()
+//                MBGithubOAuth.shared.oauthRequestWith(["scope" : "email,user,repo"])
             })
         }
     }

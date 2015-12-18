@@ -34,9 +34,7 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func update(searchTerm: String) {
         
-        do {
-            let token = try MBGithubOAuth.shared.accessToken()
-            
+            let token =  OAuthClient.shared.token            
             let url = NSURL(string: "https://api.github.com/search/repositories?access_token=\(token)&q=\(searchTerm)")!
             
             let request = NSMutableURLRequest(URL: url)
@@ -74,7 +72,6 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
                     }
                 }
                 }.resume()
-        } catch {}
     }
     
     // MARK: UITableViewDataSource

@@ -26,6 +26,8 @@
 		BF628F9F1BF913AC00F98F20 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF628F9E1BF913AC00F98F20 /* Extensions.swift */; };
 		BF6425C21BF9ADAA00D19DEE /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6425C11BF9ADAA00D19DEE /* MyProfileViewController.swift */; };
 		BF6425C41BF9BC7700D19DEE /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6425C31BF9BC7700D19DEE /* Animation.swift */; };
+		BF85AE381C24B2FE004292E6 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85AE371C24B2FE004292E6 /* KeyChainService.swift */; };
+		BF85AE3A1C24B461004292E6 /* OAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85AE391C24B461004292E6 /* OAuthClient.swift */; };
 		BFB976F41BF6EDC400C26C30 /* CustomModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		BF628F9E1BF913AC00F98F20 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BF6425C11BF9ADAA00D19DEE /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		BF6425C31BF9BC7700D19DEE /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		BF85AE371C24B2FE004292E6 /* KeyChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
+		BF85AE391C24B461004292E6 /* OAuthClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthClient.swift; sourceTree = "<group>"; };
 		BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModalTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3AC2BE1BF6CB9E007AE415 /* MBGithubOAuth.swift */,
+				BF85AE391C24B461004292E6 /* OAuthClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 		BF3AC2CC1BF6CDED007AE415 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				BF85AE371C24B2FE004292E6 /* KeyChainService.swift */,
 				BF628F9E1BF913AC00F98F20 /* Extensions.swift */,
 				BF3AC28F1BF6CADB007AE415 /* AppDelegate.swift */,
 				BF6425C31BF9BC7700D19DEE /* Animation.swift */,
@@ -353,6 +359,8 @@
 				BF3AC2901BF6CADB007AE415 /* AppDelegate.swift in Sources */,
 				BF3AC2D11BF6CF2C007AE415 /* UserCollectionViewCell.swift in Sources */,
 				BFB976F41BF6EDC400C26C30 /* CustomModalTransition.swift in Sources */,
+				BF85AE381C24B2FE004292E6 /* KeyChainService.swift in Sources */,
+				BF85AE3A1C24B461004292E6 /* OAuthClient.swift in Sources */,
 				BF6425C41BF9BC7700D19DEE /* Animation.swift in Sources */,
 				BF628F9F1BF913AC00F98F20 /* Extensions.swift in Sources */,
 			);
