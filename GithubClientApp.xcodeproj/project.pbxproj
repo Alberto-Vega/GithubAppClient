@@ -170,8 +170,8 @@
 		BF3AC2C01BF6CBD4007AE415 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BF6425C11BF9ADAA00D19DEE /* MyProfileViewController.swift */,
 				BF3AC2C11BF6CC32007AE415 /* OAuthViewController.swift */,
+				BF6425C11BF9ADAA00D19DEE /* MyProfileViewController.swift */,
 				BF3AC2911BF6CADB007AE415 /* HomeViewController.swift */,
 				BF3AC2C31BF6CC58007AE415 /* SearchRepoViewController.swift */,
 				BF3AC2C51BF6CC72007AE415 /* SearchUserViewController.swift */,

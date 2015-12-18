@@ -41,7 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let token = try MBGithubOAuth.shared.accessToken()
             print("The token retrieved in APP delegate: \(token)")
             
-        } catch _ { self.presentOAuthViewController() }
+        } catch _ {
+            
+            self.presentOAuthViewController() }
         
     }
     

@@ -75,7 +75,6 @@ class MyProfileViewController: UIViewController {
                         let avatarUrl = userJSON["avatar_url"] as? String
                         let location = userJSON["location"] as? String
                         
-                        
                         if let name = name, id = id, url = url, avatarUrl = avatarUrl, location = location  {
                             let userProfile = User(name: name, profileImageUrl: avatarUrl, location: location)
                             print(" Profile parsed is: \(userProfile)")
@@ -90,7 +89,7 @@ class MyProfileViewController: UIViewController {
                     }
                 }
                 }.resume()
-        } catch {}
+        } catch { }
     }
     
     func setupRoundedImage() {
