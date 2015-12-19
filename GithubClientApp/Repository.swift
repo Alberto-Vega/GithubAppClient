@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+class Repository {
+    
+    let name: String
+    let id: Int
+    let url: String
+    
+    init(name: String, id: Int, url: String) {
+        self.name = name
+        self.id = id
+        self.url = url
+    }
+}
