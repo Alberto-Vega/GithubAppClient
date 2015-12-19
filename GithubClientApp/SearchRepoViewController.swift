@@ -35,45 +35,45 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
     func update(searchTerm: String) {
         
         if let token =  OAuthClient.shared.token {
-        if let url = NSURL(string: "https://api.github.com/search/repositories?access_token=\(token)&q=\(searchTerm)") {
-            
-            let request = NSMutableURLRequest(URL: url)
-            request.setValue("application/json", forHTTPHeaderField: "Accept")
-            
-            NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+            if let url = NSURL(string: "https://api.github.com/search/repositories?access_token=\(token)&q=\(searchTerm)") {
                 
-                if let error = error {
-                    print(error)
-                }
+                let request = NSMutableURLRequest(URL: url)
+                request.setValue("application/json", forHTTPHeaderField: "Accept")
                 
-                if let data = data {
-                    if let dictionaryOfRepositories = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [String : AnyObject] {
-                        
-                        if let items = dictionaryOfRepositories["items"] as? [[String : AnyObject]] {
+                NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+                    
+                    if let error = error {
+                        print(error)
+                    }
+                    
+                    if let data = data {
+                        if let dictionaryOfRepositories = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [String : AnyObject] {
                             
-                            var repositories = [Repository]()
-                            
-                            for eachRepository in items {
-                                let name = eachRepository["name"] as? String
-                                let id = eachRepository["id"] as? Int
-                                let repositoryUrl = eachRepository["svn_url"] as? String
+                            if let items = dictionaryOfRepositories["items"] as? [[String : AnyObject]] {
                                 
-                                if let name = name, id = id, repositoryUrl = repositoryUrl {
-                                    let repo = Repository(name: name, id: id, url: repositoryUrl)
-                                    repositories.append(repo)
+                                var repositories = [Repository]()
+                                
+                                for eachRepository in items {
+                                    let name = eachRepository["name"] as? String
+                                    let id = eachRepository["id"] as? Int
+                                    let repositoryUrl = eachRepository["svn_url"] as? String
+                                    
+                                    if let name = name, id = id, repositoryUrl = repositoryUrl {
+                                        let repo = Repository(name: name, id: id, url: repositoryUrl)
+                                        repositories.append(repo)
+                                    }
                                 }
+                                
+                                // This is because NSURLSession comes back on a background queue.
+                                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                                    self.repositories = repositories
+                                })
                             }
-                            
-                            // This is because NSURLSession comes back on a background queue.
-                            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                                self.repositories = repositories
-                            })
                         }
                     }
-                }
-                }.resume()
+                    }.resume()
+            }
         }
-    }
     }
     
     // MARK: UITableViewDataSource

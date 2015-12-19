@@ -40,47 +40,47 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
         
         if let token = OAuthClient.shared.token {
             
-        if let url = NSURL(string: "https://api.github.com/search/users?access_token=\(token)&q=\(searchTerm)") {
-            
-            let request = NSMutableURLRequest(URL: url)
-            request.setValue("application/json", forHTTPHeaderField: "Accept")
-            
-            NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+            if let url = NSURL(string: "https://api.github.com/search/users?access_token=\(token)&q=\(searchTerm)") {
                 
-                if let error = error {
-                    print(error)
-                }
+                let request = NSMutableURLRequest(URL: url)
+                request.setValue("application/json", forHTTPHeaderField: "Accept")
                 
-                if let data = data {
+                NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
                     
-                    if let json = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [String : AnyObject] {
+                    if let error = error {
+                        print(error)
+                    }
+                    
+                    if let data = data {
                         
-                        if let items = json["items"] as? [[String : AnyObject]] {
+                        if let json = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [String : AnyObject] {
                             
-                            var users = [User]()
-                            
-                            for item in items {
+                            if let items = json["items"] as? [[String : AnyObject]] {
                                 
-                                let name = item["login"] as? String
-                                let profileImageUrl = item["avatar_url"] as? String
-                                let location = item["location"] as? String?
+                                var users = [User]()
                                 
-                                if let name = name, profileImageUrl = profileImageUrl, location = location {
+                                for item in items {
                                     
-                                    users.append(User(name: name, profileImageUrl: profileImageUrl, location: location))
-                                    print(users)
+                                    let name = item["login"] as? String
+                                    let profileImageUrl = item["avatar_url"] as? String
+                                    let location = item["location"] as? String?
+                                    
+                                    if let name = name, profileImageUrl = profileImageUrl, location = location {
+                                        
+                                        users.append(User(name: name, profileImageUrl: profileImageUrl, location: location))
+                                        print(users)
+                                    }
                                 }
+                                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                                    self.users = users
+                                })
                             }
-                            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                                self.users = users
-                            })
                         }
                     }
-                }
-                
-                }.resume()
+                    
+                    }.resume()
+            }
         }
-    }
     }
     
     // MARK: UICollectionViewDataSource

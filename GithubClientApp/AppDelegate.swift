@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var oauthViewController: OAuthViewController?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-//        self.checkOAuthStatus()
+
         if let token = KeychainService.loadFromKeychain() {
             
         } else {
@@ -58,8 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func presentOAuthViewController() {
         
         if let tabbarController = self.window?.rootViewController as? UITabBarController, homeViewController = tabbarController.viewControllers?.first as? HomeViewController, storyboard = tabbarController.storyboard {
-
-        
+            
+            
             if let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController {
                 
                 homeViewController.addChildViewController(oauthViewController)

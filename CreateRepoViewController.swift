@@ -11,7 +11,7 @@ import UIKit
 typealias completionHandler = () -> ()
 
 class CreateRepoViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-
+    
     @IBOutlet weak var repoNameTextField: UITextField!
     @IBOutlet weak var repoDescriptionTextView: UITextView!
     
@@ -24,9 +24,9 @@ class CreateRepoViewController: UIViewController, UITextFieldDelegate, UITextVie
         self.repoDescriptionTextView.delegate = self
         
         self.repoNameTextField.becomeFirstResponder()
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,7 +60,7 @@ class CreateRepoViewController: UIViewController, UITextFieldDelegate, UITextVie
                 if let error = error {
                     print(error)
                 }
-        }.resume()
+                }.resume()
         } catch { completion(success: false) }
     }
     
@@ -80,7 +80,7 @@ class CreateRepoViewController: UIViewController, UITextFieldDelegate, UITextVie
         invalidTextAlertController.addAction(okAction)
         self.presentViewController(invalidTextAlertController, animated: true, completion: nil)
     }
-
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         guard let text = self.repoNameTextField.text else {
             displayAlertNoText()
@@ -88,12 +88,12 @@ class CreateRepoViewController: UIViewController, UITextFieldDelegate, UITextVie
         }
         if text.characters.count > 0 {
             if String.validateInput(text) {
-            self.repoNameTextField.resignFirstResponder()
-            self.repoDescriptionTextView.becomeFirstResponder()
-            return true
-        } else {
-            displayInvalidTextAlert()
-        }
+                self.repoNameTextField.resignFirstResponder()
+                self.repoDescriptionTextView.becomeFirstResponder()
+                return true
+            } else {
+                displayInvalidTextAlert()
+            }
         }
         displayInvalidTextAlert()
         return false
@@ -117,6 +117,6 @@ class CreateRepoViewController: UIViewController, UITextFieldDelegate, UITextVie
                     completion()
                 })
             }
+        }
     }
-}
 }

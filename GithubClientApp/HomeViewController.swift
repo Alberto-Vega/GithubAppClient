@@ -36,44 +36,44 @@ class HomeViewController: UIViewController, UITableViewDataSource, SFSafariViewC
         
         if let token = OAuthClient.shared.token {
             
-        if let url = NSURL(string: "\(kGitHubAPIBaseURL)user/repos?access_token=\(token)") {
-            
-            let request = NSMutableURLRequest(URL: url)
-            request.setValue("application/json", forHTTPHeaderField: "Accept")
-            
-            NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+            if let url = NSURL(string: "\(kGitHubAPIBaseURL)user/repos?access_token=\(token)") {
                 
-                if let error = error {
-                    print(error)
-                }
+                let request = NSMutableURLRequest(URL: url)
+                request.setValue("application/json", forHTTPHeaderField: "Accept")
                 
-                if let data = data {
-                    if let arraysOfRepoDictionaries = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [[String : AnyObject]] {
-                        
-                        var repositories = [Repository]()
-                        
-                        for eachRepository in arraysOfRepoDictionaries {
-                            
-                            let name = eachRepository["name"] as? String
-                            let id = eachRepository["id"] as? Int
-                            let url = eachRepository["svn_url"] as? String
-                            
-                            
-                            if let name = name, id = id, url = url  {
-                                let repo = Repository(name: name, id: id, url: url)
-                                repositories.append(repo)
-                            }
-                        }
-                        
-                        // This is because NSURLSession comes back on a background q.
-                        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                            self.repositories = repositories
-                        })
+                NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+                    
+                    if let error = error {
+                        print(error)
                     }
-                }
-                }.resume()
+                    
+                    if let data = data {
+                        if let arraysOfRepoDictionaries = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as? [[String : AnyObject]] {
+                            
+                            var repositories = [Repository]()
+                            
+                            for eachRepository in arraysOfRepoDictionaries {
+                                
+                                let name = eachRepository["name"] as? String
+                                let id = eachRepository["id"] as? Int
+                                let url = eachRepository["svn_url"] as? String
+                                
+                                
+                                if let name = name, id = id, url = url  {
+                                    let repo = Repository(name: name, id: id, url: url)
+                                    repositories.append(repo)
+                                }
+                            }
+                            
+                            // This is because NSURLSession comes back on a background q.
+                            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                                self.repositories = repositories
+                            })
+                        }
+                    }
+                    }.resume()
+            }
         }
-    }
     }
     
     // MARK: UITableViewDataSource
