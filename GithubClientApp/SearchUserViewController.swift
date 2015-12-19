@@ -38,9 +38,9 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func update(searchTerm: String) {
         
-            let token = OAuthClient.shared.token
+        if let token = OAuthClient.shared.token {
             
-            let url = NSURL(string: "https://api.github.com/search/users?access_token=\(token)&q=\(searchTerm)")!
+        if let url = NSURL(string: "https://api.github.com/search/users?access_token=\(token)&q=\(searchTerm)") {
             
             let request = NSMutableURLRequest(URL: url)
             request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -79,6 +79,8 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
                 }
                 
                 }.resume()
+        }
+    }
     }
     
     // MARK: UICollectionViewDataSource
@@ -101,7 +103,7 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
             if String.validateInput(searchTerm) {
                 self.update(searchTerm)
             } else {
-                let alert = UIAlertController(title: "Invalid Search", message: "Your query for '\(searchBar.text!)' contains character(s) that will be ignored", preferredStyle: .Alert)
+                let alert = UIAlertController(title: "Invalid Search", message: "Your query for '\(searchBar.text!)' contains spaces or character(s) that will be ignored", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "Please Try Again!", style: .Cancel, handler: nil)
                 alert.addAction(action)
                 presentViewController(alert, animated: true, completion: nil)

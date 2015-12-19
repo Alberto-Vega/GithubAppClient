@@ -12,8 +12,6 @@ import UIKit
 
 class MyProfileViewController: UIViewController {
     
-    
-    
     @IBOutlet weak var myProfilePictureView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var myLocationLabel: UILabel!
@@ -48,9 +46,9 @@ class MyProfileViewController: UIViewController {
     
     func update() {
         
-            let token = OAuthClient.shared.token
+        if let token = OAuthClient.shared.token {
             
-            let url = NSURL(string: "https://api.github.com/user?access_token=\(token)")!
+        if let url = NSURL(string: "https://api.github.com/user?access_token=\(token)") {
             
             let request = NSMutableURLRequest(URL: url)
             request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -88,6 +86,8 @@ class MyProfileViewController: UIViewController {
                     }
                 }
                 }.resume()
+    }
+    }
     }
     
     func setupRoundedImage() {

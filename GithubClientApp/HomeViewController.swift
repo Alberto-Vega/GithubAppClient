@@ -34,9 +34,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, SFSafariViewC
     
     func update() {
         
-            let token = OAuthClient.shared.token
+        if let token = OAuthClient.shared.token {
             
-            let url = NSURL(string: "https://api.github.com/user/repos?access_token=\(token)")!
+        if let url = NSURL(string: "https://api.github.com/user/repos?access_token=\(token)") {
             
             let request = NSMutableURLRequest(URL: url)
             request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -72,6 +72,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, SFSafariViewC
                     }
                 }
                 }.resume()
+        }
+    }
     }
     
     // MARK: UITableViewDataSource

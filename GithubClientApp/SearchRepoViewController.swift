@@ -34,8 +34,8 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func update(searchTerm: String) {
         
-            let token =  OAuthClient.shared.token            
-            let url = NSURL(string: "https://api.github.com/search/repositories?access_token=\(token)&q=\(searchTerm)")!
+        if let token =  OAuthClient.shared.token {
+        if let url = NSURL(string: "https://api.github.com/search/repositories?access_token=\(token)&q=\(searchTerm)") {
             
             let request = NSMutableURLRequest(URL: url)
             request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -72,6 +72,8 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
                     }
                 }
                 }.resume()
+        }
+    }
     }
     
     // MARK: UITableViewDataSource
