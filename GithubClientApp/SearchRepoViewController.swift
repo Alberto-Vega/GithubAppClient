@@ -99,6 +99,10 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
         self.presentViewController(safariViewController, animated: true, completion: nil)
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.searchBar.resignFirstResponder()
+    }
+    
     // MARK: UISearchBarDelegate
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {

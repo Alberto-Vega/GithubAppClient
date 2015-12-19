@@ -36,7 +36,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, SFSafariViewC
         
         if let token = OAuthClient.shared.token {
             
-        if let url = NSURL(string: "https://api.github.com/user/repos?access_token=\(token)") {
+        if let url = NSURL(string: "\(kGitHubAPIBaseURL)user/repos?access_token=\(token)") {
             
             let request = NSMutableURLRequest(URL: url)
             request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -107,6 +107,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, SFSafariViewC
     
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //MARK: Prepare for Segue.
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "CreateRepoViewController" {
+            let createRepoViewController = segue.destinationViewController as! CreateRepoViewController
+            createRepoViewController.completion = ({
+                self.tableView.reloadData()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+        }
     }
 }
 

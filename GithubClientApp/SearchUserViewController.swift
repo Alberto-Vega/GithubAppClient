@@ -120,6 +120,10 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
         return true
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.searchBar.resignFirstResponder()
+    }
+    
     // MARK: prepareForSegue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

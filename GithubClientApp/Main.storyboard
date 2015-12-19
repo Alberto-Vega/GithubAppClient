@@ -16,19 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OFx-kx-XlS">
-                                <rect key="frame" x="0.0" y="72" width="600" height="479"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OFx-kx-XlS">
+                                <rect key="frame" x="0.0" y="114" width="600" height="437"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="9sO-0n-KIX" style="IBUITableViewCellStyleDefault" id="FIX-nU-RGe">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="9sO-0n-KIX" rowHeight="55" style="IBUITableViewCellStyleDefault" id="FIX-nU-RGe">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FIX-nU-RGe" id="Ofg-mr-G5d">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9sO-0n-KIX">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="54"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,14 +43,30 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="5J3-qU-rHf"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXc-o1-mvg">
+                                <rect key="frame" x="416" y="72" width="164" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Create  a Repository"/>
+                                <connections>
+                                    <segue destination="kNQ-ZX-zVR" kind="show" identifier="CreateRepoViewController" id="QMj-Ik-i0c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="OFx-kx-XlS" firstAttribute="top" secondItem="yXc-o1-mvg" secondAttribute="bottom" constant="8" symbolic="YES" id="2cd-Fl-Vk5"/>
                             <constraint firstItem="OFx-kx-XlS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="F70-UF-cWh"/>
                             <constraint firstAttribute="trailing" secondItem="OFx-kx-XlS" secondAttribute="trailing" id="RJ7-aM-AJ7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OFx-kx-XlS" secondAttribute="bottom" id="ZEj-98-Hl5"/>
-                            <constraint firstItem="OFx-kx-XlS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="ie9-JS-0Xl"/>
+                            <constraint firstAttribute="trailing" secondItem="yXc-o1-mvg" secondAttribute="trailing" constant="20" symbolic="YES" id="gNj-ui-AUQ"/>
+                            <constraint firstItem="OFx-kx-XlS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="63" id="ie9-JS-0Xl"/>
+                            <constraint firstItem="yXc-o1-mvg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="wbD-SN-913"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ie9-JS-0Xl"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Repos" id="fLC-iy-hXk"/>
                     <connections>
@@ -60,6 +76,90 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1842" y="1335"/>
+        </scene>
+        <!--Create Repo View Controller-->
+        <scene sceneID="DR4-wD-RCN">
+            <objects>
+                <viewController id="kNQ-ZX-zVR" customClass="CreateRepoViewController" customModule="GithubClientApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cXM-y6-wVJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="T0U-DP-V6t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PL8-L7-a3e">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Repository" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SN2-HV-6Bx">
+                                <rect key="frame" x="200" y="138" width="201" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hgk-P6-LkX">
+                                <rect key="frame" x="20" y="231" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7aK-y6-RmZ">
+                                <rect key="frame" x="20" y="334" width="560" height="148"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="148" id="ISa-2k-Xza"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repository Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kA4-71-X9s">
+                                <rect key="frame" x="20" y="202" width="132" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3p-Wk-gg7">
+                                <rect key="frame" x="20" y="305" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MN3-em-Ca3">
+                                <rect key="frame" x="271" y="500" width="59" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="vWh-GF-HFL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="kNQ-ZX-zVR" eventType="touchUpInside" id="DAC-mm-puc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kA4-71-X9s" firstAttribute="top" secondItem="SN2-HV-6Bx" secondAttribute="bottom" constant="36" id="0Dz-fK-6MC"/>
+                            <constraint firstItem="MN3-em-Ca3" firstAttribute="top" secondItem="7aK-y6-RmZ" secondAttribute="bottom" constant="18" id="2ZE-VL-4bu"/>
+                            <constraint firstItem="Hgk-P6-LkX" firstAttribute="top" secondItem="kA4-71-X9s" secondAttribute="bottom" constant="8" symbolic="YES" id="68e-yp-5RT"/>
+                            <constraint firstItem="7aK-y6-RmZ" firstAttribute="top" secondItem="W3p-Wk-gg7" secondAttribute="bottom" constant="8" symbolic="YES" id="F3C-HL-51v"/>
+                            <constraint firstItem="7aK-y6-RmZ" firstAttribute="leading" secondItem="PL8-L7-a3e" secondAttribute="leading" constant="20" id="SlC-dJ-c3e"/>
+                            <constraint firstItem="SN2-HV-6Bx" firstAttribute="centerX" secondItem="PL8-L7-a3e" secondAttribute="centerX" id="W0H-CV-hH3"/>
+                            <constraint firstItem="SN2-HV-6Bx" firstAttribute="top" secondItem="cXM-y6-wVJ" secondAttribute="bottom" constant="74" id="XkK-fa-ySk"/>
+                            <constraint firstItem="Hgk-P6-LkX" firstAttribute="leading" secondItem="PL8-L7-a3e" secondAttribute="leading" constant="20" id="a27-qv-xYX"/>
+                            <constraint firstItem="W3p-Wk-gg7" firstAttribute="top" secondItem="Hgk-P6-LkX" secondAttribute="bottom" constant="44" id="b7H-rt-PHg"/>
+                            <constraint firstItem="kA4-71-X9s" firstAttribute="leading" secondItem="PL8-L7-a3e" secondAttribute="leading" constant="20" id="cEC-NI-Kwd"/>
+                            <constraint firstItem="MN3-em-Ca3" firstAttribute="centerX" secondItem="PL8-L7-a3e" secondAttribute="centerX" id="l5H-dO-82U"/>
+                            <constraint firstAttribute="trailing" secondItem="Hgk-P6-LkX" secondAttribute="trailing" constant="20" id="ogj-at-Dug"/>
+                            <constraint firstAttribute="trailing" secondItem="7aK-y6-RmZ" secondAttribute="trailing" constant="20" id="rau-DM-C2U"/>
+                            <constraint firstItem="W3p-Wk-gg7" firstAttribute="leading" secondItem="PL8-L7-a3e" secondAttribute="leading" constant="20" id="tkF-0y-gwZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="repoDescriptionTextView" destination="7aK-y6-RmZ" id="nzz-td-avo"/>
+                        <outlet property="repoNameTextField" destination="Hgk-P6-LkX" id="Omb-WT-clk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vC7-VY-ufb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2558" y="1327"/>
         </scene>
         <!--Search Repo-->
         <scene sceneID="Gbq-Xc-ZfM">

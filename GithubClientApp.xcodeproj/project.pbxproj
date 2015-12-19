@@ -28,6 +28,8 @@
 		BF6425C41BF9BC7700D19DEE /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6425C31BF9BC7700D19DEE /* Animation.swift */; };
 		BF85AE381C24B2FE004292E6 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85AE371C24B2FE004292E6 /* KeyChainService.swift */; };
 		BF85AE3A1C24B461004292E6 /* OAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85AE391C24B461004292E6 /* OAuthClient.swift */; };
+		BF85AE3F1C24FE6F004292E6 /* CreateRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85AE3E1C24FE6F004292E6 /* CreateRepoViewController.swift */; };
+		BF85AE431C252498004292E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF85AE421C252498004292E6 /* Constants.swift */; };
 		BFB976F41BF6EDC400C26C30 /* CustomModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,8 @@
 		BF6425C31BF9BC7700D19DEE /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		BF85AE371C24B2FE004292E6 /* KeyChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		BF85AE391C24B461004292E6 /* OAuthClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthClient.swift; sourceTree = "<group>"; };
+		BF85AE3E1C24FE6F004292E6 /* CreateRepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateRepoViewController.swift; path = ../CreateRepoViewController.swift; sourceTree = "<group>"; };
+		BF85AE421C252498004292E6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BFB976F31BF6EDC400C26C30 /* CustomModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModalTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,12 +179,10 @@
 		BF3AC2C01BF6CBD4007AE415 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BF3AC2C11BF6CC32007AE415 /* OAuthViewController.swift */,
+				BF85AE3B1C24FDEE004292E6 /* Log In */,
 				BF6425C11BF9ADAA00D19DEE /* MyProfileViewController.swift */,
-				BF3AC2911BF6CADB007AE415 /* HomeViewController.swift */,
-				BF3AC2C31BF6CC58007AE415 /* SearchRepoViewController.swift */,
-				BF3AC2C51BF6CC72007AE415 /* SearchUserViewController.swift */,
-				BF23A7C91BF6F0600067A203 /* UserDetailViewController.swift */,
+				BF85AE401C24FE85004292E6 /* Repositories */,
+				BF85AE411C24FE95004292E6 /* Users */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +199,7 @@
 		BF3AC2CC1BF6CDED007AE415 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				BF85AE421C252498004292E6 /* Constants.swift */,
 				BF85AE371C24B2FE004292E6 /* KeyChainService.swift */,
 				BF628F9E1BF913AC00F98F20 /* Extensions.swift */,
 				BF3AC28F1BF6CADB007AE415 /* AppDelegate.swift */,
@@ -214,6 +217,33 @@
 				BF3AC2D01BF6CF2C007AE415 /* UserCollectionViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		BF85AE3B1C24FDEE004292E6 /* Log In */ = {
+			isa = PBXGroup;
+			children = (
+				BF3AC2C11BF6CC32007AE415 /* OAuthViewController.swift */,
+			);
+			name = "Log In";
+			sourceTree = "<group>";
+		};
+		BF85AE401C24FE85004292E6 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				BF3AC2911BF6CADB007AE415 /* HomeViewController.swift */,
+				BF3AC2C31BF6CC58007AE415 /* SearchRepoViewController.swift */,
+				BF85AE3E1C24FE6F004292E6 /* CreateRepoViewController.swift */,
+			);
+			name = Repositories;
+			sourceTree = "<group>";
+		};
+		BF85AE411C24FE95004292E6 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				BF3AC2C51BF6CC72007AE415 /* SearchUserViewController.swift */,
+				BF23A7C91BF6F0600067A203 /* UserDetailViewController.swift */,
+			);
+			name = Users;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF3AC2C91BF6CD81007AE415 /* Repository.swift in Sources */,
+				BF85AE431C252498004292E6 /* Constants.swift in Sources */,
 				BF3AC2C21BF6CC32007AE415 /* OAuthViewController.swift in Sources */,
 				BF6425C21BF9ADAA00D19DEE /* MyProfileViewController.swift in Sources */,
 				BF23A7CA1BF6F0600067A203 /* UserDetailViewController.swift in Sources */,
@@ -360,6 +391,7 @@
 				BF3AC2D11BF6CF2C007AE415 /* UserCollectionViewCell.swift in Sources */,
 				BFB976F41BF6EDC400C26C30 /* CustomModalTransition.swift in Sources */,
 				BF85AE381C24B2FE004292E6 /* KeyChainService.swift in Sources */,
+				BF85AE3F1C24FE6F004292E6 /* CreateRepoViewController.swift in Sources */,
 				BF85AE3A1C24B461004292E6 /* OAuthClient.swift in Sources */,
 				BF6425C41BF9BC7700D19DEE /* Animation.swift in Sources */,
 				BF628F9F1BF913AC00F98F20 /* Extensions.swift in Sources */,
