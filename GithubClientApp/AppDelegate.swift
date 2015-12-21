@@ -9,38 +9,96 @@
 import UIKit
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    var oauthViewController: OAuthViewController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        self.checkOAuthStatus()
         return true
     }
-
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        MBGithubOAuth.shared.tokenRequestWithCallback(url, options: SaveOptions.UserDefaults) { (success) -> () in
+            if success {
+                if let oauthViewController = self.oauthViewController {
+                    oauthViewController.processOauthRequest()
+                }
+            }
+        }
+        return true
     }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    // MARK: Setup
+    
+    func checkOAuthStatus() {
+        
+        do {
+            
+            let token = try MBGithubOAuth.shared.accessToken()
+            print(token)
+            
+        } catch _ { self.presentOAuthViewController() }
+        
     }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    func presentOAuthViewController() {
+        
+        if let tabbarController = self.window?.rootViewController as? UITabBarController, homeViewController = tabbarController.viewControllers?.first as? HomeViewController, storyboard = tabbarController.storyboard {
+            
+            
+            if let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController {
+                
+                homeViewController.addChildViewController(oauthViewController)
+                homeViewController.view.addSubview(oauthViewController.view)
+                oauthViewController.didMoveToParentViewController(homeViewController)
+                
+                tabbarController.tabBar.hidden = true
+                
+                oauthViewController.oauthCompletionHandler = ({
+                    UIView.animateWithDuration(0.6, delay: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                        oauthViewController.view.alpha = 0.0
+                        }, completion: { (finished) -> Void in
+                            oauthViewController.view.removeFromSuperview()
+                            oauthViewController.removeFromParentViewController()
+                            
+                            tabbarController.tabBar.hidden = false
+                            
+                            // Make the call for repositories.
+                            homeViewController.update()
+                    })
+                })
+                self.oauthViewController = oauthViewController
+            }
+        }
     }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
+    
+    //    func presentOAuthViewController() {
+    //        if let homeViewController = self.window?.rootViewController as? HomeViewController, storyboard = homeViewController.storyboard {
+    //            if let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController {
+    //                homeViewController.addChildViewController(oauthViewController)
+    //                homeViewController.view.addSubview(oauthViewController.view)
+    //                oauthViewController.didMoveToParentViewController(homeViewController)
+    //                oauthViewController.oauthCompletionHandler = ({
+    //                    UIView.animateWithDuration(0.6, delay: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+    //                        oauthViewController.view.alpha = 0.0
+    //                        }, completion: { (finished) -> Void in
+    //                            oauthViewController.view.removeFromSuperview()
+    //                            oauthViewController.removeFromParentViewController()
+    //
+    //                            // Make the call for repositories.
+    //                            homeViewController.update()
+    //                    })
+    //                })
+    //
+    //                // We need a pointer to our OAuthViewController for application:sourceApplication:annotation:
+    //                self.oauthViewController = oauthViewController
+    //            }
+    //        }
+    //        
+    //    }
+    
 }
-
