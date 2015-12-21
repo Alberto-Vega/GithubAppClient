@@ -17,16 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var oauthViewController: OAuthViewController?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
-        if let token = KeychainService.loadFromKeychain() {
-            
+        if let _ = KeychainService.loadFromKeychain() {
         } else {
-            let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-            if let loginVC = storyboard.instantiateViewControllerWithIdentifier("OAuthViewController") as? OAuthViewController {
-                window = UIWindow(frame: UIScreen.mainScreen().bounds)
-                window?.makeKeyAndVisible()
-                window?.rootViewController = loginVC
-            }
+            self.presentOAuthViewController()
         }
         
         return true
@@ -38,31 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if success {
                 
                 if let oauthViewController =  self.oauthViewController {
-                    oauthViewController.processLogin()
+                    oauthViewController.view.removeFromSuperview()
+                    oauthViewController.removeFromParentViewController()
                 }
             }
         }
         return true
 
-    }
-//    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-//        UIApplication.sharedApplication().keyWindow?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
-//        return true
-//    }
-    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
-        
-        OAuthClient.shared.exchangeCodeInURL(url) { (success) -> () in
-            if success {
-                
-                if let oauthViewController =  self.oauthViewController {
-                    oauthViewController.processLogin()
-                }
-//                guard let oauthViewController = self.oauthViewController else {return}
-//                oauthViewController.processLogin()
-            }
-        }
-        
-        return true
     }
     
     // MARK: Setup
@@ -78,31 +53,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func presentOAuthViewController() {
         
-        if let tabbarController = self.window?.rootViewController as? UITabBarController, homeViewController = tabbarController.viewControllers?.first as? HomeViewController, storyboard = tabbarController.storyboard {
-            
-            
-            if let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController {
-                
-                homeViewController.addChildViewController(oauthViewController)
-                homeViewController.view.addSubview(oauthViewController.view)
-                oauthViewController.didMoveToParentViewController(homeViewController)
-                
-                tabbarController.tabBar.hidden = true
-                
-                oauthViewController.oAuthCompletionHandler = ({
-                    UIView.animateWithDuration(0.6, delay: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-                        oauthViewController.view.alpha = 0.0
-                        }, completion: { (finished) -> Void in
-                            oauthViewController.view.removeFromSuperview()
-                            oauthViewController.removeFromParentViewController()
-                            
-                            tabbarController.tabBar.hidden = false
-                            
-                            // Make the call for repositories.
-                            homeViewController.update()
-                    })
-                })
-                self.oauthViewController = oauthViewController
+        if let navigationController = self.window?.rootViewController as? UINavigationController {
+            if let tabbarController = navigationController.viewControllers.first as? UITabBarController {
+                if let profileViewController = tabbarController.viewControllers?.first as? MyProfileViewController {
+                    
+                    guard let storyboard = navigationController.storyboard else {return}
+                    guard let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController else {return}
+                    
+                    profileViewController.addChildViewController(oauthViewController)
+                    profileViewController.view.addSubview(oauthViewController.view)
+                    oauthViewController.didMoveToParentViewController(profileViewController)
+                    
+                    self.oauthViewController = oauthViewController;
+                }
             }
         }
     }
