@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var oauthViewController: OAuthViewController?
+    var myProfileViewController: MyProfileViewController?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         if let _ = KeychainService.loadFromKeychain() {
@@ -33,6 +34,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let oauthViewController =  self.oauthViewController {
                     oauthViewController.view.removeFromSuperview()
                     oauthViewController.removeFromParentViewController()
+                    self.myProfileViewController?.update()
+                     self.myProfileViewController?.tabBarController?.tabBar.hidden = false
+
+
+//                    oauthViewController.completionHandler = ({
+//                        self.myProfileViewController?.update()
+//                        tabbarController.tabBar.hidden = false
+//                    })
+                    self.myProfileViewController?.myProfileViewControllerCompletionHandler = ({
+                        self.myProfileViewController?.update()
+                        self.myProfileViewController?.tabBarController?.tabBar.hidden = false
+                    })
+
+
                 }
             }
         }
@@ -57,6 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let tabbarController = navigationController.viewControllers.first as? UITabBarController {
                 if let profileViewController = tabbarController.viewControllers?.first as? MyProfileViewController {
                     
+                    tabbarController.tabBar.hidden = true
+                    navigationController.navigationBarHidden = true
+                    
                     guard let storyboard = navigationController.storyboard else {return}
                     guard let oauthViewController = storyboard.instantiateViewControllerWithIdentifier(OAuthViewController.identifier()) as? OAuthViewController else {return}
                     
@@ -65,6 +83,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     oauthViewController.didMoveToParentViewController(profileViewController)
                     
                     self.oauthViewController = oauthViewController;
+                    
+                    self.myProfileViewController = profileViewController;
+                    
+                    oauthViewController.completionHandler = ({
+                        self.myProfileViewController?.update()
+                        tabbarController.tabBar.hidden = true
+                    })
+                    
+                    
                 }
             }
         }

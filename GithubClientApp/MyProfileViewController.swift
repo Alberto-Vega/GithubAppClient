@@ -8,9 +8,12 @@
 
 import UIKit
 
+typealias MyProfileViewControllerCompletionHandler = ()->()
 
 
 class MyProfileViewController: UIViewController {
+    
+    var myProfileViewControllerCompletionHandler: MyProfileViewControllerCompletionHandler?
     
     @IBOutlet weak var myProfilePictureView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -108,5 +111,11 @@ class MyProfileViewController: UIViewController {
                 self.myProfilePictureView.image = image
             })
         })
+    }
+    
+    func reloadDataAfterGettingToken() {
+        if let myProfileViewControllerCompletionHandler = self.myProfileViewControllerCompletionHandler {
+            myProfileViewControllerCompletionHandler()
+        }
     }
 }

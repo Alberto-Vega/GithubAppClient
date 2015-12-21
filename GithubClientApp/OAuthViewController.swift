@@ -13,6 +13,7 @@ typealias OAuthViewControllerCompletionHandler = () -> ()
 class OAuthViewController: UIViewController {
     
     var oAuthCompletionHandler: OAuthViewControllerCompletionHandler?
+    var completionHandler: OAuthViewControllerCompletionHandler?
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
@@ -53,7 +54,9 @@ class OAuthViewController: UIViewController {
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
                 OAuthClient.shared.requestGithubAccess()
-            
+                if let completionHandler = self.completionHandler {
+                    completionHandler()
+                }
 //                MBGithubOAuth.shared.oauthRequestWith(["scope" : "email,user,repo"])
             })
         }
