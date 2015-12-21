@@ -53,6 +53,7 @@ class OAuthViewController: UIViewController {
             NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                 
                 OAuthClient.shared.requestGithubAccess()
+            
 //                MBGithubOAuth.shared.oauthRequestWith(["scope" : "email,user,repo"])
             })
         }

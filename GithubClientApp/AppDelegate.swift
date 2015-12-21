@@ -32,12 +32,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        
+        OAuthClient.shared.exchangeCodeInURL(url) { (success) -> () in
+            if success {
+                
+                if let oauthViewController =  self.oauthViewController {
+                    oauthViewController.processLogin()
+                }
+            }
+        }
+        return true
+
+    }
+//    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+//        UIApplication.sharedApplication().keyWindow?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+//        return true
+//    }
     func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
         
         OAuthClient.shared.exchangeCodeInURL(url) { (success) -> () in
             if success {
-                guard let oauthViewController = self.oauthViewController else {return}
-                oauthViewController.processLogin()
+                
+                if let oauthViewController =  self.oauthViewController {
+                    oauthViewController.processLogin()
+                }
+//                guard let oauthViewController = self.oauthViewController else {return}
+//                oauthViewController.processLogin()
             }
         }
         

@@ -10,7 +10,7 @@
 //
 //let kAccessTokenKey = "kAccessTokenKey"
 //let kOAuthBaseURLString = "https://github.com/login/oauth/"
-//let kAccessTokenRegexPattern = "access_token=([^&]+)"
+//let kzPattern = "access_token=([^&]+)"
 //
 //typealias MBGithubOAuthCompletion = (success: Bool) -> ()
 //
