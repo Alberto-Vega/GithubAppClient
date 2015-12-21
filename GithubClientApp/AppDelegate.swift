@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     oauthViewController.removeFromParentViewController()
                     self.myProfileViewController?.update()
                      self.myProfileViewController?.tabBarController?.tabBar.hidden = false
+                    self.myProfileViewController?.navigationController?.navigationBarHidden = false
 
 
 //                    oauthViewController.completionHandler = ({
@@ -90,7 +91,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         self.myProfileViewController?.update()
                         tabbarController.tabBar.hidden = true
                     })
-                    
                     
                 }
             }
