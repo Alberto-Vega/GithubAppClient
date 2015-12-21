@@ -300,7 +300,7 @@
                             <constraint firstAttribute="trailing" secondItem="kwe-Zb-jKN" secondAttribute="trailing" id="zjk-1r-s4N"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Fic-eD-rx5"/>
+                    <tabBarItem key="tabBarItem" title="Find Users" id="Fic-eD-rx5"/>
                     <navigationItem key="navigationItem" title="User Search" id="Si2-yt-NTU"/>
                     <connections>
                         <outlet property="collectionView" destination="4Gu-zw-oYb" id="ueI-gh-7Yq"/>
